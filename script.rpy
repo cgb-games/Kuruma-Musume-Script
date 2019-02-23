@@ -7,7 +7,7 @@
 
 #characters
 define tb = Character("[name]", color="F6D295")
-define s13 = Character("Silvie", color="#63D2FA")
+define sil = Character("Silvie", color="#63D2FA")
 define mia = Character("Mia", color="FF2626")
 define lan = Character("Lanna", color="AFAFAF")
 define she = Character("Shelby", color='556B2F')
@@ -29,8 +29,8 @@ image bg lannastore = "images/Scenes/game_store.jpg"
 image bg itally = "images/Scenes/fancy_restaurant.jpg"
 image bg p4u = "images/Scenes/p4u.jpg"
 #Cars
-image bg s13 = "images/Scenes/s13_parked.jpg"
-image bg s13in = "images/Scenes/s13_int.jpg"
+image bg sil = "images/Scenes/s13_parked.jpg"
+image bg silin = "images/Scenes/s13_int.jpg"
 image bg miain = "images/Scenes/miain.jpg"
 image bg miap = "images/Scenes/mia_parked.jpg"
 image bg lanin = "images/Scenes/lan_evo_int.jpeg"
@@ -137,7 +137,7 @@ init:
     $   gf = False
 
 #Rejections
-    $   s13_rejection = 0
+    $   sil_rejection = 0
     $   mia_rejection = 0
     $   lan_rejection = 0
     $   she_rejection = 0
@@ -146,7 +146,7 @@ init:
 
 #With Girls
     $   with_mia = False
-    $   with_s13 = False
+    $   with_sil = False
     $   with_lan = False
     $   with_she = False
 
@@ -168,10 +168,10 @@ init:
     $   day = 1
 
 #Silvie Flags
-    $   s13_date = 0
-    $   s13_date1 = False
+    $   sil_date = 0
+    $   sil_date1 = False
     $   s_coffee_day_2 = False
-    $   s13_first_drive = False
+    $   sil_first_drive = False
 
 #Mia Flags
     $   mia_met = False
@@ -236,7 +236,7 @@ label start:
     scene bg mg with dissolve
 
     show silvia with dissolve
-    $   with_s13 = True
+    $   with_sil = True
     "Sick Customer" "*Cough* *Cough*"
 
     tb "Need a cough drop, ma'am?"
@@ -268,7 +268,7 @@ label start:
     tb "You pay your bill and go on with your day. Seriously, lady, I just fixed your car. It's not a big deal."
     "She took me by the hand and lead me out to her car."
 
-    scene bg s13 with dissolve
+    scene bg sil with dissolve
     show silvia with dissolve
 
     "Customer" "Look, I need to explain something to you. I'm-"
@@ -285,7 +285,7 @@ label start:
     "Customer" "Get in, please."
     "What choice did I have? I opened the door and sat down in the driver's seat."
 
-    scene bg s13in with dissolve
+    scene bg silin with dissolve
     pause 1
     show silvia
 
@@ -305,7 +305,7 @@ label start:
     menu:
         "Alright, I will.":
             $   solo = False
-            $   with_s13 = True
+            $   with_sil = True
             jump bemechanic_yes
 
         "This is all too much. I think I've lost my mind.":
@@ -324,7 +324,7 @@ label start:
     tb "I have a question, though."
     "Customer" "Yeah?"
     tb "What's your name?"
-    s13 "You can call me [Silvie]."
+    sil "You can call me [Silvie]."
     "From that moment on, my life changed forever."
     stop music fadeout 1.5
 
@@ -348,51 +348,51 @@ label start:
     "That day changed my life"
     "Over the next few days, we met each other after I finished with work."
 
-    scene bg s13in with dissolve
+    scene bg silin with dissolve
 
     show silvia with dissolve
 
-    s13 "It's weird, but it actually feels good that a human knows about me."
+    sil "It's weird, but it actually feels good that a human knows about me."
     tb "You think so?"
-    s13 "Yeah! Normally we keep ourselves pretty secret. Sometimes even we can't recognize each other."
+    sil "Yeah! Normally we keep ourselves pretty secret. Sometimes even we can't recognize each other."
     "She lets out a long, contented sigh."
-    s13 "It's kind of a relief just to have someone know who I really am."
+    sil "It's kind of a relief just to have someone know who I really am."
     tb "So, I've gotta know something."
     tb "How are you, uh, car-girls born?"
-    s13 "No one really knows exactly. We just kind of exist suddenly."
-    s13 "What we do know is that it seems to have something to do with someone putting their heart and soul into making us."
-    s13 "It's like a little piece of their soul creates a new soul for their car!"
+    sil "No one really knows exactly. We just kind of exist suddenly."
+    sil "What we do know is that it seems to have something to do with someone putting their heart and soul into making us."
+    sil "It's like a little piece of their soul creates a new soul for their car!"
     tb "So if someone spends a lot of time working on you, suddenly you're a person?"
-    s13 "It's the only theory I've ever heard that makes any sense."
+    sil "It's the only theory I've ever heard that makes any sense."
     tb "Are you really all girls?"
-    s13 "Yup. We're still trying to figure that one out too, but we suspect that the same thing used to happen with ships back when it took a lot more work to build them."
-    s13 "It would explain why boats are always called she."
+    sil "Yup. We're still trying to figure that one out too, but we suspect that the same thing used to happen with ships back when it took a lot more work to build them."
+    sil "It would explain why boats are always called she."
     tb "I guess it would."
     tb "So how do you recognize other car girls?"
-    s13 "We like the term {i}Kuruma Musume{/i}."
-    s13 "When you know enough about cars, you can start recognizing what Kuruma Musumes look like. We always look a little like the cars we're born from."
-    s13 "Not to mention the fact that we aren't able to get too far away from our car selves, so someone who won't walk far from her car probably is the car."
-    s13 "It's probably easier for us to tell than it is for humans, but I'm sure you'd learn to recognize us if you met some more."
+    sil "We like the term {i}Kuruma Musume{/i}."
+    sil "When you know enough about cars, you can start recognizing what Kuruma Musumes look like. We always look a little like the cars we're born from."
+    sil "Not to mention the fact that we aren't able to get too far away from our car selves, so someone who won't walk far from her car probably is the car."
+    sil "It's probably easier for us to tell than it is for humans, but I'm sure you'd learn to recognize us if you met some more."
     tb "You should introduce me to some others then. This is fascinating."
-    s13 "Maybe."
-    s13 "We're usually pretty shy, so I don't know if any others will want to meet you."
-    s13 "N-not that I'd be jealous of you talking to someone else!"
+    sil "Maybe."
+    sil "We're usually pretty shy, so I don't know if any others will want to meet you."
+    sil "N-not that I'd be jealous of you talking to someone else!"
     "Oh no. I hope she's not one of {i}those{/i} types."
     tb "Oh well. If I have you around, I'm sure I'm bound to meet another car at some point anyway."
-    s13 "We'll see."
-    s13 "So, we've been seeing each other for a few days now, but we never really do anything. So I was wondering, do you want to go get coffee or something?"
+    sil "We'll see."
+    sil "So, we've been seeing each other for a few days now, but we never really do anything. So I was wondering, do you want to go get coffee or something?"
     "Wait, is a car asking me out on a date?"
 
     menu:
         "I'd love to!":
             $   sil_rel += 2
             "[Silvie] exhales as if she were holding her breath waiting for my answer."
-            s13 "Great! There's a little coffee shop a few blocks down that I go to a lot. You'll love it!"
-            jump s13_coffee_date1
+            sil "Great! There's a little coffee shop a few blocks down that I go to a lot. You'll love it!"
+            jump sil_coffee_date1
 
         "Maybe some other time.":
-            $   s13_rejection += 1
-            jump nos13date1
+            $   sil_rejection += 1
+            jump nosildate1
 
 
 
@@ -426,26 +426,26 @@ label start:
     menu:
         "Call [Silvie]":
             $   call_silvie = True
-            $   renpy.jump("s13_dc" + str(s13_date + 1))
+            $   renpy.jump("sil_dc" + str(sil_date + 1))
             "I guess I should call Silvie."
-            s13 "Hello?"
-            "DEBUG: s13_date=[s13_date]"
-            if s13_date == 1:
+            sil "Hello?"
+            "DEBUG: sil_date=[sil_date]"
+            if sil_date == 1:
                 tb "Hey, Silvie. Are you busy today?"
-                s13 "Not at all! Would you like to meet up?"
+                sil "Not at all! Would you like to meet up?"
                 tb "Sure. Where should we meet?"
-                s13 "I'd like to go to that little park downtown, if you don't mind."
+                sil "I'd like to go to that little park downtown, if you don't mind."
                 $   sil_rel += 3
-                jump s13_park_date1
+                jump sil_park_date1
 
             else:
                 tb "Hey, Silvie. I was wondering if you'd like to go for that coffee today?"
-                s13 "Of course! Do you want to meet there or should I come pick you up?"
+                sil "Of course! Do you want to meet there or should I come pick you up?"
                 tb "I'll meet you there. It's fine."
                 $   sil_rel += 3
                 $   s_coffee_day_2 = True
                 $   call_silvie = True
-                jump s13_coffee_date1
+                jump sil_coffee_date1
 
         "Go somewhere":
             "Where should I go?"
@@ -457,7 +457,7 @@ label start:
                     else:
                         "I should try that coffee shop near work."
                         $   s_coffee_day_2 = True
-                        jump s13_coffee_date1
+                        jump sil_coffee_date1
                 "Park":
                     "It's so nice outside today. I should go visit the park downtown."
                     jump park
@@ -473,8 +473,8 @@ label start:
 
     scene bg park
 
-    if s13_date == 1:
-        jump s13_park_date1
+    if sil_date == 1:
+        jump sil_park_date1
 
     else:
         jump evo_park_date1
@@ -578,30 +578,30 @@ label start:
 
     #Silvie Day 2 Mall
 
-    label s13_mall1:
+    label sil_mall1:
     $   mall_date = 1
     play music mall fadein 1.5
     scene bg silviestore with dissolve
     show silvia with dissolve
     "[Silvie], it turned out, preferred to do her clothes shopping at the big department stores."
     "I've never cared much for them because of their manipulative marketing tactics, but if that's the clothes [Silvie] likes, what can I say?"
-    s13 "I don't go shopping a lot. I usually just go with [Mia], but she usually shops at other stores. It's nice to have someone who doesn't mind going to my favorites."
+    sil "I don't go shopping a lot. I usually just go with [Mia], but she usually shops at other stores. It's nice to have someone who doesn't mind going to my favorites."
     tb "Does [Mia] not come with you?"
-    s13 "She will, but she always complains."
+    sil "She will, but she always complains."
     tb "I guess that's just how she is."
-    s13 "I don't really mind it. She's been my closest friend since we met, so it's not a big deal."
+    sil "I don't really mind it. She's been my closest friend since we met, so it's not a big deal."
     tb "Do you have a lot of friends?"
-    s13 "Well, I probably know most of the Kuruma Musumes in town. I'm not really friends with any humans though."
-    s13 "Except you, of course."
+    sil "Well, I probably know most of the Kuruma Musumes in town. I'm not really friends with any humans though."
+    sil "Except you, of course."
     tb "But are you actually close to any of them?"
-    s13 "Not really. We'll talk sometimes, and I'm always happy to race them, but I guess we aren't all that close."
-    s13 "It's okay, though. I don't have to be close friends with everyone, but I always have people I can call."
+    sil "Not really. We'll talk sometimes, and I'm always happy to race them, but I guess we aren't all that close."
+    sil "It's okay, though. I don't have to be close friends with everyone, but I always have people I can call."
     tb "I guess that's a good way to look at it."
     "To be honest, I've never had many close friends either."
-    s13 "But if you ask Mia, she'd say I'm friends with the whole city!"
+    sil "But if you ask Mia, she'd say I'm friends with the whole city!"
     tb "You do seem like the social type."
-    s13 "It's just great to know I'm not alone."
-    s13 "Hey, do you want to go get something to eat? This place has a really nice food court."
+    sil "It's just great to know I'm not alone."
+    sil "Hey, do you want to go get something to eat? This place has a really nice food court."
     tb "Yeah, that'd be great."
     jump day_2_mall_event
 
@@ -657,7 +657,7 @@ label start:
 
     if with_mia:
         show mia
-    elif with_s13:
+    elif with_sil:
         show silvia
     elif with_lan:
         show lanna
@@ -690,25 +690,25 @@ label start:
         mia "Humans have ways of hurting us that they'll never understand."
         tb "I'm sorry. I won't bring it up."
         mia "Thanks."
-    elif with_s13:
-        s13 "Did I scare you when I fused for the first time?"
+    elif with_sil:
+        sil "Did I scare you when I fused for the first time?"
         tb "I didn't know what to think. I thought it was some crazy magic trick and there was going to be a team of cameramen jumping out suddenly to film my reaction."
-        s13 "That sounds like an idea [Mia] would have for a show."
+        sil "That sounds like an idea [Mia] would have for a show."
         tb "I'm sure it'd be just as shocking for everyone watching on TV as whoever was with the car."
-        s13 "Don't suggest that to [Mia], you'd only encourage her. She already likes to go around telling humans what she is."
+        sil "Don't suggest that to [Mia], you'd only encourage her. She already likes to go around telling humans what she is."
         tb "I don't imagine any of them believe her. I've been working on cars my whole life and would have never believed that this could happen if I didn't see it."
-        s13 "You've really been a mechanic your whole life?"
+        sil "You've really been a mechanic your whole life?"
         tb "Kind of. I used to help my dad with a car he was restoring when I was a kid. Sadly, we never finished it."
-        s13 "You should totally try to finish her!"
+        sil "You should totally try to finish her!"
         tb "I can't. Dad had to sell it to afford rent once."
-        s13 "That's too bad. You might have managed to make a Kuruma Musume if you finished her."
+        sil "That's too bad. You might have managed to make a Kuruma Musume if you finished her."
         tb "I wonder what she'd be like?"
-        s13 "If she was born from you, she probably would be pretty cool."
+        sil "If she was born from you, she probably would be pretty cool."
         tb "Cool?"
-        s13 "Um...{w} I mean...{w} I just think it's kind of cool that you can take all of this Kuruma Musume stuff so well."
+        sil "Um...{w} I mean...{w} I just think it's kind of cool that you can take all of this Kuruma Musume stuff so well."
         tb "I guess most people would have a hard time accepting it."
         #show relieved silvie
-        s13 "Exactly. You're really level-headed and quick to accept new things. That kind of person would make a pretty great Kuruma Musume."
+        sil "Exactly. You're really level-headed and quick to accept new things. That kind of person would make a pretty great Kuruma Musume."
     elif with_lan:
         lan "So why did you decide to be a mechanic?"
         tb "I've been really into cars since I was a kid working on an old car with my dad."
@@ -765,14 +765,14 @@ label start:
         "She ignored [Mia] and didn't even try to lower her voice."
         "Just like in high school, [Staci] speaks her mind without a single thought for the people around her."
 
-    elif with_s13:
+    elif with_sil:
         sta "Oh, is she your girlfriend?"
-        s13 "I... {w=0.5} I'm... {w=0.5} It's not like..."
+        sil "I... {w=0.5} I'm... {w=0.5} It's not like..."
         tb "She's my friend. We met a few days ago at work."
         sta "I see."
         tb "[Silvie], this is [Staci]. She was my girlfriend for a few years in high school."
         sta "It's nice to meet you. I figured [PC] would never find another girl who could put up with all his car talk. Does he still talk about cars?"
-        s13 "Of course-"
+        sil "Of course-"
         sta "He was such a nerd back in high school, but he was cute, so what the heck?"
         "Not even a moment for anyone else to talk. Doesn't seem like [Staci]'s changed much since those days."
 
@@ -808,7 +808,7 @@ label start:
     if with_mia:
         "If looks could kill, [Mia] would be a murderer."
 
-    elif with_s13:
+    elif with_sil:
         #show angry silvie
         "I've never seen [Silvie]'s angry face before, but she definitely didn't take that comment well."
 
@@ -853,18 +853,18 @@ label start:
         mia "Your passion for cars is a part of you. If she couldn't accept that, then she didn't really like you."
         tb "You wouldn't understand."
         mia "Whatever. Let's just go. I'll take you back to your car."
-    elif with_s13:
+    elif with_sil:
         "[Silvie] tried to hide the face she had been making, but it was obvious she wasn't happy."
         tb "Sorry about that. Staci never was very fond of cars."
-        s13 "Yeah. I gathered that much."
+        sil "Yeah. I gathered that much."
         tb "I guess it sounds a little worse to someone who's actually a car."
-        s13 "You don't say."
+        sil "You don't say."
         tb "Look, she was really good to me back in high school. I was kind of a loser for a while, but she liked me anyway."
-        s13 "Didn't you say cars were your life? Didn't you have a passion for cars since you were a kid? How did you end up with someone like that?"
+        sil "Didn't you say cars were your life? Didn't you have a passion for cars since you were a kid? How did you end up with someone like that?"
         tb "She might not have liked my interest in cars, but she was still good to me. In a way, she helped me through high school."
-        s13 "You deserve someone who supports what you care about."
+        sil "You deserve someone who supports what you care about."
         tb "It was a long time ago anyway. I don't need a lecture."
-        s13 "Sorry. Let's just go."
+        sil "Sorry. Let's just go."
 
     elif with_lan:
         lan "Ah ha ha ha ha ha!"
@@ -930,24 +930,24 @@ label start:
         stop music fadeout 2
         $   renpy.jump("dend_" + str(day))
 
-    elif with_s13:
-        scene bg s13in
+    elif with_sil:
+        scene bg silin
         show silvia with dissolve
         play music fallapart fadein 2
         "[Silvie]'s mood didn't improve as we drove. She was quite for most of the way, and I didn't know what I could say to fix things."
         "Obviously [Staci] was not going to go over well with any Kuruma Musume, but this felt a little ridiculous."
         "It had been years since I last saw [Staci] and I hadn't even thought of her since high school. I know [Silvie] won't ever like someone who hates cars, but it's not like [Staci] matters."
-        s13 "I'm sorry I got so upset back there. This was supposed to be a happy day."
+        sil "I'm sorry I got so upset back there. This was supposed to be a happy day."
         tb "It's alright. I just don't see why [Staci] matters enough for you to get so upset."
-        s13 "She wants you to give up your love for cars. What am I going to do if my mechanic decides he wants to swap to a desk job?"
+        sil "She wants you to give up your love for cars. What am I going to do if my mechanic decides he wants to swap to a desk job?"
         tb "That's not going to happen. Besides, why would she try to change me? We haven't seen each other in years."
-        s13 "It's fine. Let's just drop it. Happy day. Today was a happy day. It can't end as an angry day."
+        sil "It's fine. Let's just drop it. Happy day. Today was a happy day. It can't end as an angry day."
         tb "I'm sorry. Today was very nice. I had a lot of fun, and it was even nice getting to go shopping with you."
-        s13 "It was. I even got to take you for a fun drive. I've never done that for anyone before."
+        sil "It was. I even got to take you for a fun drive. I've never done that for anyone before."
         tb "It was really nice. I haven't ever been in a car with someone who drove like that."
-        s13 "Well, we're here now. I'll let you head home. Good night, [PC]."
+        sil "Well, we're here now. I'll let you head home. Good night, [PC]."
         tb "Good night, [Silvie]."
-        $   with_s13 = False
+        $   with_sil = False
 
 
     elif with_lan:
@@ -1032,16 +1032,16 @@ label start:
                 "Call [Silvie]":
                     $   call_silvie = True
                     $   sil_rel += 3
-                    $   renpy.jump("s13_dc" + str(s13_date +1))
-                    #if s13_date == 1:
+                    $   renpy.jump("sil_dc" + str(sil_date +1))
+                    #if sil_date == 1:
                     #    tb "Hey, Silvie. Are you busy today?"
-                    #    s13 "Not at all! Would you like to meet up?"
+                    #    sil "Not at all! Would you like to meet up?"
                     #    tb "Sure. Where should we meet?"
-                    #    s13 "I'd like to go to that little park downtown, if you don't mind."
+                    #    sil "I'd like to go to that little park downtown, if you don't mind."
                     #    $   sil_rel += 3
-                    #    jump s13_park_date1
-                    #elif s13_date == 1:
-                    #    jump s13_park_date1
+                    #    jump sil_park_date1
+                    #elif sil_date == 1:
+                    #    jump sil_park_date1
                     #else:
                     #    return
                 "Call [Mia]" if mia_number:
@@ -1070,10 +1070,10 @@ label start:
             "Where should I go?"
             menu:
                 "Coffee shop":
-                    if s13_date < 1:
+                    if sil_date < 1:
                         "I should try that coffee shop near work."
                         #On day 3, you will meet Silvie working at the coffee shop. You can have the coffee date on her break.
-                        jump s13_coffee_date1
+                        jump sil_coffee_date1
                     elif mia_date == 1:
                         return
                 "Park":
@@ -1111,7 +1111,7 @@ label start:
                 "Call [Silvie]":
                     $   call_silvie = True
                     $   sil_rel += 3
-                    $   renpy.jump("s13_dc" + str(s13_date +1))
+                    $   renpy.jump("sil_dc" + str(sil_date +1))
 
                 "Call [Mia]" if mia_number:
                     $   call_mia = True
@@ -1135,9 +1135,9 @@ label start:
             "Where should I go?"
             menu:
                 "Coffee shop":
-                    if s13_date < 1:
+                    if sil_date < 1:
                         "I should try that coffee shop near work."
-                        jump s13_coffee_date1
+                        jump sil_coffee_date1
                     elif mia_date == 1:
                         return
                 "Park":
@@ -1149,6 +1149,9 @@ label start:
                     jump d4_call
 
     label dend_4:
+    stop music fadeout 1.5
+    scene bg bed with dissolve
+    play music bed fadein 1.5
 
     "I should really get some rest."
 
@@ -1158,25 +1161,25 @@ label start:
 #Calls
     #Silvie
     #Date 1
-    label s13_dc1:
+    label sil_dc1:
     "I guess I should call Silvie."
-    s13 "Hello?"
-    "DEBUG: s13_date=[s13_date]"
+    sil "Hello?"
+    "DEBUG: sil_date=[sil_date]"
     tb "Hey, [Silvie]. I was wondering if you'd like to go have that coffee today."
-    s13 "I'd love to! Let's go to the shop over near your work. Want to meet there?"
+    sil "I'd love to! Let's go to that little coffee shop over near your work. Want to meet there?"
     tb "That'll be fine. See you soon."
     "I hung up, grabbed my keys, and was over to the coffee shop as fast as I could."
-    jump s13_coffee_date1
+    jump sil_coffee_date1
 
 
     #Date 2
-    label s13_dc2:
+    label sil_dc2:
     tb "Hey, Silvie. Are you busy today?"
-    s13 "Not at all! Would you like to meet up?"
+    sil "Not at all! Would you like to meet up?"
     tb "Sure. Where should we meet?"
-    s13 "I'd like to go to that little park downtown, if you don't mind."
+    sil "I'd like to go to that little park downtown, if you don't mind."
     $   sil_rel += 3
-    jump s13_park_date1
+    jump sil_park_date1
 
 
     #Mia
@@ -1234,12 +1237,12 @@ label start:
 
 #Dates
 
-    #S13 Dates
+    #Silvie Dates
 
 
-    #S13 Coffee Date 1
+    #Silvie Coffee Date 1
 
-    label s13_coffee_date1:
+    label sil_coffee_date1:
 
     stop music fadeout 1.5
 
@@ -1249,85 +1252,88 @@ label start:
 
     "Hostess" "Welcome to Cafe Le Auto. Please have a seat."
 
-    if s13_date < 1:
+    if sil_date < 1:
         if day > 1:
             jump no_first_day_date
 
 
     "Somehow I never knew that this place was here."
     "Even though it's within walking distance from work, we drove here because [Silvie] can't travel far from her car form."
-    jump s13_date1_2
+    jump sil_date1_2
 
     label no_first_day_date:
     show silvia
     if call_silvie == False:
-        s13 "Hey, [PC]! What are you doing here?"
+        sil "Hey, [PC]! What are you doing here?"
         "Looks like [Silvie]'s here today too."
         tb "I just thought I'd check this place out since I've never been here before."
     elif call_silvie == True:
         tb "Hey, [Silvie]. It's good to see you again."
-        s13 "You too. Have a seat."
+        sil "You too. Have a seat."
         "I pull up a chair across from [Silvie]."
         tb "So, do you come here often?"
-    s13 "It's my favorite."
+    sil "It's my favorite."
     "I look around and notice why.{w} The whole place is car themed for some reason."
     tb "The car theme's a little odd for a coffee shop, don't you think?"
-    s13 "Maybe it is, but I like it."
+    sil "Maybe it is, but I like it."
 
     if call_silvie == False:
-        s13 "Since we're here, do you want to sit together and talk?"
+        sil "Since we're here, do you want to sit together and talk?"
 
         menu:
             "Sure.":
                 "We place our orders and take a seat."
                 $   sil_rel += 2
-                jump s13_date1_2
+                jump sil_date1_2
             "Not today.":
                 $   sil_rejection += 1
                 $   sil_rel -= 1
                 tb "Sorry to put it off again. I can't stay here long."
-                #show s13_dejected
-                s13 "Oh.{w} Okay then. Maybe next time."
+                #show sil_dejected
+                sil "Oh.{w} Okay then. Maybe next time."
                 tb "Next time for sure."
                 hide silvia with dissolve
-                jump s13_coffee_denial
+                jump sil_coffee_denial
 
 
-    label s13_date1_2:
+    label sil_date1_2:
 
     $   first_date = True
-    $   s13_coffee_date1 = True
+    $   sil_coffee_date1 = True
 
     show silvia
     tb "So do most cars like coffee?"
-    s13 "Not necessarily."
-    s13 "We all have our own tastes, just like people, but most of us do like to come to cars and coffee meets just to socialize, so we all know the local coffee shops."
+    sil "Not necessarily."
+    sil "We all have our own tastes, just like people, but most of us do like to come to cars and coffee meets just to socialize, so we all know the local coffee shops."
     tb "Do you even need to eat, or can you just pull up to a gas station to drink?"
-    s13 "Hehe~"
-    s13 "Yeah, we do need food and water and all of that on top of needing gas, oil, brake fluid, and everything for our car."
-    #show s13.wink
-    s13 "I guess you could say we're pretty high maintenance girls. {b}USE WINKING SILVIE IMAGE{/b}"
+    sil "Hehe~"
+    sil "Yeah, we do need food and water and all of that on top of needing gas, oil, brake fluid, and everything for our car."
+    #show sil.wink
+    sil "I guess you could say we're pretty high maintenance girls. {b}USE WINKING SILVIE IMAGE{/b}"
     tb "Haha. I guess so."
     tb "How do you even afford all of that?"
-    s13 "Well, there's plenty of people who will pay you for a ride somewhere."
-    s13 "And some kuruma musumes will even pick up jobs at cafes and restaurants."
-    s13 "We don't really need a house, even if we're independent, so that's one thing that doesn't cost much, though it is nice to have a warm garage to rest in."
+    sil "Well, there's plenty of people who will pay you for a ride somewhere."
+    sil "And some kuruma musumes will even pick up jobs at cafes and restaurants."
+    sil "We don't really need a house, even if we're independent, so that's one thing that doesn't cost much, though it is nice to have a warm garage to rest in."
     tb "Are most of you homeless then?"
-    s13 "Well, home is where you make it."
-    s13 "Besides, don't you know the saying \"you can live in a car but can't race a house?\""
+    sil "Well, home is where you make it."
+    sil "Besides, don't you know the saying \"you can live in a car but can't race a house?\""
     tb "Wait. You girls actually race? Seems especially dangerous for someone who's whole existence is tied to her car."
-    s13 "It's not like it's that much more dangerous than it is for humans."
-    s13 "Besides, there's nothing that makes a car feel more alive than going full throttle to test herself against another car."
+    sil "It's not like it's that much more dangerous than it is for humans."
+    sil "Besides, there's nothing that makes a car feel more alive than going full throttle to test herself against another car."
     tb "So you're thrill seekers then?"
-    s13 "I guess you could say that."
-    s13 "Though maybe it's because of the souls who created us. My owner was a street racer when I was born, so maybe that's why."
+    sil "I guess you could say that."
+    sil "Though maybe it's because of the souls who created us. My owner was a street racer when I was born, so maybe that's why."
     tb "You better be careful out there if you're racing. I think I'd prefer it if I didn't have to fix you."
-    s13 "It's fine. I'm a pretty good driver."
+    sil "It's fine. I'm a pretty good driver."
 
-    "Small Child" "Hey, [Silvie]! I didn't expect to see you here."
+    if mia_met:
+        mia "Hey, [Silvie]! I didn't expect to see you here today."
+    else:
+        "Small Child" "Hey, [Silvie]! I didn't expect to see you here today."
 
     $   with_mia = True
-    $   mia_met = True
+
 
     show silvia at slideleft
     show mia behind silvia:
@@ -1335,138 +1341,190 @@ label start:
         linear 0.5 right
 
 
-    s13 "Oh, hi [Mia]. How are you?"
-    mia "Doin' pretty good. Say, who's this guy you're with? Is he-"
-    "[Silvie] blushes."
-    s13 "He's my mechanic. He did a really great job the other day so I thought I'd say thanks by buying him a cup of coffee."
-    tb "Hi, I'm [PC]."
-    mia "[Mia]. Pleased to meet ya."
-    "Mia reached out her hand and shook mine viggorously."
-    mia "Poor [Silvie] here sucks at talking to guys. Glad she found someone she's comfortable with."
+    sil "Oh, hi [Mia]. How are you?"
+    if mia_met:
+        mia "Doin' pretty good. Hi, [PC]. Nice to see you again."
+        tb "Hi, [Mia]."
+        sil "Oh, have you two met?"
+        mia "Yeah, we met the other day. Honestly, he's kind of hopeless, but I can see why you like him."
+        #show silvie blush
+        sil "I don't know what you mean."
+        mia "Poor guy has no clue how to talk to cars. And the lewd things he said to me? Well, you might be more open to them."
+        #show silvie mad
+        sil "What did you say to her!?"
+        mia "He asked to look up my skirt!"
+        tb "I asked to look at your engine! I didn't know that was taboo for you girls!"
+        #show silvie laugh
+        sil "Hahahahahaha!{w} Is that all? Come on, [Mia]. You know the poor guy's new to all of this."
+        mia "It was still really awkward."
+        sil "You better get used to it. He might be working on you some day."
+        mia "Well I'm sure you just loved having him under you."
+        #show silvie embarrassed
+        sil "It's not like that!"
+        "These cars and their innuendos..."
+        mia "Relax. You know I'm teasing. Anyway, sorry to interrupt your date."
+        sil "It's not really a date."
+        mia "Sure it's not."
+        #show mia serious
+        mia "You better be nice to [Silvie]. I don't like people hurting my best friend."
+        mia "Anyway...{w} See ya!"
+        hide mia
+        with moveoutright
 
-    show mia:
-        right
-        linear 0.5 center
+        $   with_mia = False
 
-    "[Mia] whispered something to [Silvie] and her blush brightened."
+        show silvia:
+            left
+            linear 0.5 center
 
-    show mia:
-        center
-        linear 0.5 right
+        "[Silvie] burried her face in her hands as [Mia] strolled out of the coffee shop."
+        sil "I'm so sorry. [Mia] lives to embarrass me."
+        tb "Don't sweat it. I could tell she was just trying to press your buttons."
+        "..."
+        tb "Wait, that's not a car innuendo too, is it?"
+        #show silvie giggle
+        sil "Haha. No, that's okay."
+        tb "She's right though. I really am kind of clueless on all of this."
+        sil "Don't feel bad about that. Humans have trouble adjusting to something that completely breaks their understanding of the world."
+        #show silvie smile
+        sil "You're doing just fine."
+        tb "Thanks. I'm trying my best to learn my way around it all."
+        sil "I'm glad you and [Mia] can be friends now. Knowing more Kuruma Musume should help you learn faster."
 
-    mia "Well, it was nice to meet you. I've got places to be, so I'll stop interrupting your date. You two have a nice evening."
+    else:
+        mia "Doin' pretty good. Say, who's this guy you're with? Is he-"
+        "[Silvie] blushes."
+        sil "He's my mechanic. He did a really great job the other day so I thought I'd say thanks by buying him a cup of coffee."
+        tb "Hi, I'm [PC]."
+        mia "[Mia]. Pleased to meet ya."
+        "Mia reached out her hand and shook mine viggorously."
+        mia "Poor [Silvie] here sucks at talking to guys. Glad she found someone she's comfortable with."
 
-    hide mia
-    with moveoutright
+        show mia:
+            right
+            linear 0.5 center
 
-    $   with_mia = False
+        "[Mia] whispered something to [Silvie] and her blush brightened."
 
-    show silvia:
-        left
-        linear 0.5 center
+        show mia:
+            center
+            linear 0.5 right
 
-    "[Silvie] burried her face in her hands as [Mia] strolled out of the coffee shop."
+        mia "Well, it was nice to meet you. I've got places to be, so I'll stop interrupting your date. You two have a nice evening."
 
-    $   coffee_date = True
+        hide mia
+        with moveoutright
 
-    s13 "I'm so sorry. [Mia] lives to embarrass me. Please just ignore everything she said."
-    tb "Don't worry about it. That's just how kids are. So do you know her mom or something?"
-    s13 "Kid? You mean you couldn't tell?"
-    s13 "[Mia] is another kuruma musume."
-    "I looked out of the window and sure enough, there went that little girl peeling out of the parking lot in the driver's seat of her own car."
-    "Insert CG of [Mia] driving away"
-    tb "Seriously!? But she looks so young!"
-    s13 "Well, she is a pretty small car. Most older roadsters are about her size."
-    tb "I can only imagine how the police react to seeing a kid driving around like that."
-    s13 "She's good at playing up the cute and innocent act, so I think they're usually pretty lenient once they see her ID."
-    tb "Do you girls get fake driver's licenses?"
-    s13 "Some of us manage to get real ones. I'm sure she has a real license. It's just a nightmare trying to sort out the paperwork when the only document you have is a title."
-    tb "I see."
+        $   with_mia = False
+
+        show silvia:
+            left
+            linear 0.5 center
+
+        "[Silvie] burried her face in her hands as [Mia] strolled out of the coffee shop."
+        sil "I'm so sorry. [Mia] lives to embarrass me. Please just ignore everything she said."
+        tb "Don't worry about it. That's just how kids are. So do you know her mom or something?"
+        sil "Kid? You mean you couldn't tell?"
+        sil "[Mia] is another kuruma musume."
+        "I looked out of the window and sure enough, there went that little girl peeling out of the parking lot in the driver's seat of her own car."
+        "Insert CG of [Mia] driving away"
+        tb "Seriously!? But she looks so young!"
+        sil "Well, she is a pretty small car. Most older roadsters are about her size."
+        tb "I can only imagine how the police react to seeing a kid driving around like that."
+        sil "She's good at playing up the cute and innocent act, so I think they're usually pretty lenient once they see her ID."
+        tb "Do you girls get fake driver's licenses?"
+        sil "Some of us manage to get real ones. I'm sure she has a real license. It's just a nightmare trying to sort out the paperwork when the only document you have is a title."
+        tb "I see."
+        $   mia_met = True
+
+
+
     tb "Well, it's been a lot of fun today, but I should be heading home."
     if day == 1:
         tb "I'm taking the next week off from work, so maybe I'll give you a call."
     elif day > 1:
-        tb "I have the rest of the week off, so maybe I'll give you a call."
-    s13 "If you want to. Please don't feel like you have to or anything. I'm just happy I got to spend this time with you."
+        tb "I have the rest of the week off, so maybe I'll give you a call soon."
+    sil "If you want to. Please don't feel like you have to or anything. I'm just happy I got to spend this time with you."
     tb "Take care of yourself, [Silvie]."
-    s13 "You too."
-    $   s13_date += 1
-    $   with_s13 = False
+    sil "You too."
+    $   coffee_date = True
+    $   sil_date += 1
+    $   with_sil = False
 
     if day == 1:
         jump dnight_1
     elif day == 2:
         jump solo_mall1
     else:
-        return
+        $   renpy.jump("dend_" + str(day))
 
 
 
-    label nos13date1:
+    label nosildate1:
     $ first_date = False
     tb "Besides, it's getting late. I should probably get home."
     "[Silvie] looks a bit dejected."
-    s13 "Alright. Well, if you want to go some other time, just give me a call."
-    $   with_s13 = False
+    sil "Alright. Well, if you want to go some other time, just give me a call."
+    $   with_sil = False
     jump dnight_1
 
-    #S13 Coffee Loop Break
-    label s13_coffee_denial:
+    #Sil Coffee Loop Break
+    label sil_coffee_denial:
     if day == 2:
         jump solo_mall1
     if day == 3:
         return
 
 
-    #S13 Park Date 1
+    #Sil Park Date 1
 
-    label s13_park_date1:
+    label sil_park_date1:
     play music park fadein 1.5
     if call_silvie:
         show bg park
         show silvia with dissolve
-        $   with_s13 = True
+        $   with_sil = True
         $   solo = False
-        s13 "Hey! It's good to see you again!"
+        sil "Hey! It's good to see you again!"
         tb "You too."
-        s13 "It's such a nice day out, isn't it?"
-        s13 "I just want to relax and soak up some sun."
+        sil "It's such a nice day out, isn't it?"
+        sil "I just want to relax and soak up some sun."
         tb "Me too."
-        jump s13_park_date1_2
+        jump sil_park_date1_2
 
     else:
         show bg park
         "I always enjoy this park. It has such a relaxing atmosphere."
-        s13 "[PC]? Is that you?"
+        sil "[PC]? Is that you?"
         show silvia with dissolve
-        $   with_s13 = True
+        $   with_sil = True
         $   solo = False
         "[Silvie] walks over to me, grinning from ear to ear."
-        s13 "It's good to see you again! This is such a nice park, especially on a day like today."
+        sil "It's good to see you again! This is such a nice park, especially on a day like today."
         tb "Kuruma Musumes like pretty days too?"
-        s13 "Of course we do. I mean, don't get me wrong, rain is fun in its own right, but it feels great to relax out in the sun."
+        sil "Of course we do. I mean, don't get me wrong, rain is fun in its own right, but it feels great to relax out in the sun."
 
 
-    label s13_park_date1_2:
+    label sil_park_date1_2:
     tb "I never would have guessed a car could be so human-like."
-    s13 "What do you mean?"
+    sil "What do you mean?"
     tb "Just the fact that you enjoy nice days like this and like to relax the same as us."
-    s13 "Constant strain on our parts gets pretty tiring for us too. As much as we like driving, we need time off."
-    s13 "And like I said, our \"human\" bodies need all of the same things as actual humans."
+    sil "Constant strain on our parts gets pretty tiring for us too. As much as we like driving, we need time off."
+    sil "And like I said, our \"human\" bodies need all of the same things as actual humans."
     tb "It must be weird having two bodies."
-    s13 "Maybe to you, but to us, it seems weird that humans only have one body."
+    sil "Maybe to you, but to us, it seems weird that humans only have one body."
     tb "I guess it would."
-    s13 "It's like having two selves, each with different desires. The car part of me wants to drive and burn rubber and make some noise."
-    s13 "But at the same time, my human side enjoys relaxing, eating, and has every single desire that a normal human would have."
+    sil "It's like having two selves, each with different desires. The car part of me wants to drive and burn rubber and make some noise."
+    sil "But at the same time, my human side enjoys relaxing, eating, and has every single desire that a normal human would have."
     tb "Do you remember anything about being just a car?"
-    s13 "Not really. It's kind of like, one day you just exist. You don't know where you came from or anything. It's kind of scary, actually."
+    sil "Not really. It's kind of like, one day you just exist. You don't know where you came from or anything. It's kind of scary, actually."
     tb "Did your owner know?"
-    s13 "I was never brave enough to let him see me."
-    s13 "The one thing you do know early on is that you're unique. At first, I thought I was the only car in the world before I met Mia."
+    sil "I was never brave enough to let him see me."
+    sil "The one thing you do know early on is that you're unique. At first, I thought I was the only car in the world before I met Mia."
     tb "How did you meet?"
-    s13 "I went to a cars and coffee meet and she noticed me right away. I was terrified when she called me out, but it was such a relief to know I wasn't alone."
+    sil "I went to a cars and coffee meet and she noticed me right away. I was terrified when she called me out, but it was such a relief to know I wasn't alone."
     tb "It must be terrifying to not have anyone like yourself to talk to."
-    s13 "Yeah. There were so many questions I had to ask Mia. She knows a lot of other Kuruma Musumes in town, so she introduced me to some of them."
+    sil "Yeah. There were so many questions I had to ask Mia. She knows a lot of other Kuruma Musumes in town, so she introduced me to some of them."
 
 
 
@@ -1486,27 +1544,27 @@ label start:
     "Sorrow instantly filled [Silvie]'s eyes and she looked away."
     tb "Sorry, I didn't mean to pry. If it's a sad story, you don't have to tell it."
     "[Silvie] wiped her eyes."
-    s13 "It's fine. I'll tell you someday, but not like this. Today's a happy day."
+    sil "It's fine. I'll tell you someday, but not like this. Today's a happy day."
     tb "You're right. Today's just too dang pretty to be sad."
-    s13 "Hey, you wanna go feed the ducks?"
+    sil "Hey, you wanna go feed the ducks?"
     menu:
         "Sure.":
             $   sil_rel += 2
-            jump s13_park_date1_ducks
+            jump sil_park_date1_ducks
         "Nah. I really can't stay any longer.":
             $   sil_rejection += 1
-            s13 "That's too bad. It was great to see you again."
+            sil "That's too bad. It was great to see you again."
             tb "It was great seeing you too."
-            s13 "Give me a call next time you want to hang out."
+            sil "Give me a call next time you want to hang out."
             tb "I will."
             if day == 2:
-                $   with_s13 = False
+                $   with_sil = False
                 $   solo = True
                 jump solo_mall1
             else:
                 return
 
-    label s13_park_date1_ducks:
+    label sil_park_date1_ducks:
     "Silvie suddenly took me by the hand and pulled me along to the pond in the middle of the park."
     #scene bg pond
     #show silvia
@@ -1514,91 +1572,91 @@ label start:
     #cg of Silvie leaning over a handrail, throwing food to the ducks, her hair blowing freely
     #scene bg pond
     #show silvia
-    s13 "I love ducks. They're just so cute."
-    jump s13_park_date1_3
+    sil "I love ducks. They're just so cute."
+    jump sil_park_date1_3
 
 
 
     label sil_about_mia:
-    s13 "She's wild. I don't know anyone quite as crazy as she is on the road."
+    sil "She's wild. I don't know anyone quite as crazy as she is on the road."
     tb "I better not ride with her!"
-    s13 "No, it's okay. She's actually a {i}really{/i} good driver. Definitely one of the best I know."
+    sil "No, it's okay. She's actually a {i}really{/i} good driver. Definitely one of the best I know."
     tb "That little girl?"
-    s13 "Absolutely. Trust me, you don't want to underestimate her. She does not take it well."
+    sil "Absolutely. Trust me, you don't want to underestimate her. She does not take it well."
     tb "Noted."
-    s13 "Also, don't insult her popups. She loves them."
-    s13 "She knows how young she looks and makes a point of proving that she's just as capable as anyone else. It's actually really inspiring."
+    sil "Also, don't insult her popups. She loves them."
+    sil "She knows how young she looks and makes a point of proving that she's just as capable as anyone else. It's actually really inspiring."
     tb "She seems to act kind of childish though."
-    s13 "That's just [Mia]'s personality. When she's not racing, she's pretty carefree and thoroughly enjoys being able to act like a kid and get away with it."
+    sil "That's just [Mia]'s personality. When she's not racing, she's pretty carefree and thoroughly enjoys being able to act like a kid and get away with it."
     tb "I guess she could get away with a lot if people think she's just a kid. I'm sure there's a lot of downsides to looking so young as well."
-    s13 "Yeah, she's been kicked out of bars a few times."
+    sil "Yeah, she's been kicked out of bars a few times."
     tb "I hope they didn't try to keep her I.D. thinking it was fake."
-    s13 "Sadly, she's gone through several drivers' licenses because of that."
+    sil "Sadly, she's gone through several drivers' licenses because of that."
     tb "It must suck to not get the respect you deserve because people think you're just a kid."
-    s13 "It does, but she makes the most of it."
-    s13 "You know what? I should give you her number. Maybe she can start embarassing you instead of me."
+    sil "It does, but she makes the most of it."
+    sil "You know what? I should give you her number. Maybe she can start embarassing you instead of me."
     $   mia_number = True
     "I added Mia's number to my phone as Silvie read it out."
-    s13 "She's michievous, though. Be careful."
+    sil "She's michievous, though. Be careful."
     tb "Trust me, I will."
-    jump s13_park_date1_3
+    jump sil_park_date1_3
 
-    label s13_park_date1_3:
+    label sil_park_date1_3:
     tb "Say, when Kuruma Musumes are born, are you like, babies, or are you just born as adults?"
-    s13 "Mentally, we're usually similar to our owners. We know how to speak and all that. We're adults in a way, but because we're still inexperienced, we're also like kids."
+    sil "Mentally, we're usually similar to our owners. We know how to speak and all that. We're adults in a way, but because we're still inexperienced, we're also like kids."
     tb "Do you mature faster than people?"
-    s13 "Generally, yeah. A lot of it has to do with what kind of car we're born from, but overall we learn and grow very quickly."
+    sil "Generally, yeah. A lot of it has to do with what kind of car we're born from, but overall we learn and grow very quickly."
     tb "What do you mean? Like, different cars have different capabilities?"
-    s13 "I thought a mechanic would know that."
+    sil "I thought a mechanic would know that."
     #show silvie wink
     tb "Come on now, you know what I mean."
-    s13 "Hehe~"
-    s13 "Yeah, while a lot of our personality is based on the people who create us, there's plenty of aspects that are based on the capabilities of our car-self."
+    sil "Hehe~"
+    sil "Yeah, while a lot of our personality is based on the people who create us, there's plenty of aspects that are based on the capabilities of our car-self."
     tb "So, a slow car's gonna be slow in other ways as well?"
     #show silvie wink
-    s13 "Now that's just mean."
+    sil "Now that's just mean."
     #show silvie smile
     extend " But yeah, that's kinda how it is."
 
-    s13 "Well, this park has been wonderful, but I think I can hear my tires calling."
+    sil "Well, this park has been wonderful, but I think I can hear my tires calling."
     tb "Do you feel things in your car even when you're walking around as a person?"
-    s13 "Yeah! I experience everything as a car and a human at the same time."
-    s13 "You know how sometimes it's like part of you feels one way about something, but then you also feel a different way?"
-    s13 "It's like that all the time for us. Sometimes it's hard to find a balance because we want to be cars and drive until we break, but we also just want to be normal people doing normal things."
+    sil "Yeah! I experience everything as a car and a human at the same time."
+    sil "You know how sometimes it's like part of you feels one way about something, but then you also feel a different way?"
+    sil "It's like that all the time for us. Sometimes it's hard to find a balance because we want to be cars and drive until we break, but we also just want to be normal people doing normal things."
     tb "Sounds like it would drive you crazy."
-    s13 "Maybe it does for some cars?"
-    s13 "Anyway, I'm just itching to go for a drive right now."
+    sil "Maybe it does for some cars?"
+    sil "Anyway, I'm just itching to go for a drive right now."
     menu:
         "Would it be alright if I rode with you?":
-            $   s13_date += 1
+            $   sil_date += 1
             $   sil_rel += 2
-            s13 "Sure! That'd be awesome!"
-            jump s13_drive1
+            sil "Sure! That'd be awesome!"
+            jump sil_drive1
         "Alright. I guess I'll see you later.":
             if day == 2:
-                $   with_s13 = False
+                $   with_sil = False
                 $   solo = True
                 jump solo_mall1
             else:
                 return
 
-    label s13_drive1:
+    label sil_drive1:
     #CG of Silvie walking through the park, hand outstretched behind her holding player's hand
     "[Silvie] once again took me by the hand and lead me off to her car."
     #CG sequence
     stop music fadeout 1.5
     play music fallapart fadein 1.5
-    scene bg s13in
+    scene bg silin
     show silvia
-    s13 "Buckle up, please."
+    sil "Buckle up, please."
     "I planned to anyway."
     "[Silvie] took off at a slow pace, navigating her way through the city."
     "It felt strange letting someone drive me around. Since getting my license, I almost always drove everywhere on my own."
     "In fact, I was usually pretty nervous letting someone else drive me."
     "Yet with Silvie behind the wheel, it just felt natural. Like I had no reason to worry."
-    s13 "We're almost out of the city now. Mind if I cut loose a little?"
+    sil "We're almost out of the city now. Mind if I cut loose a little?"
     tb "Go ahead. Just be careful with me in here."
-    s13 "Of course I will."
+    sil "Of course I will."
     "[Silvie] hit the throttle hard and we took off like a rocket."
     "I consider myself to be a good driver, but I doubt I could ever compare to [Silvie]."
     "These Kuruma Musumes really were something else."
@@ -1607,28 +1665,28 @@ label start:
     "She didn't respond, but I noticed her smile grow and her cheeks redden."
     "For a car, this must be the best way to live. No restrictions, no cares, just yourself and the road beneath your tires."
     "After at least an hour of [Silvie] racing down every road she could find, she finally slowed to a normal speed."
-    s13 "Did you have fun?"
+    sil "Did you have fun?"
     tb "Yeah. That was incredible. I guess it's only natural that a car would be good at driving."
-    s13 "Yeah. No one knows a car better than herself."
+    sil "Yeah. No one knows a car better than herself."
     #end cg sequence
     if day == 2:
-        s13 "Hey, I've got some shopping to do tonight. Would you like to come with me?"
+        sil "Hey, I've got some shopping to do tonight. Would you like to come with me?"
         menu:
             "Sure.":
-                s13 "Awesome! I'll drive."
+                sil "Awesome! I'll drive."
                 stop music fadeout 1.5
                 $   sil_rel += 2
-                jump s13_mall1
+                jump sil_mall1
             "No thanks.":
                 tb "It's getting a little late."
-                s13 "Aw, that's too bad. I had a lot of fun today."
+                sil "Aw, that's too bad. I had a lot of fun today."
                 tb "Yeah, me too. We'll have to get together again soon."
-                s13 "Bye, [PC]."
-                $   with_s13 = False
+                sil "Bye, [PC]."
+                $   with_sil = False
                 $   solo = True
                 jump solo_mall1
 
-        jump s13_mall1
+        jump sil_mall1
     else:
         $   renpy.jump("dend_" + str(day))
 
@@ -1782,6 +1840,7 @@ label start:
 
     if coffee_date == False:
         "Mia was right. I love the car aesthetic in here."
+        $   mia_met = True
 
     "We placed our orders and took a seat at one of the empty tables around the cafe."
     mia "So [Silvie] hasn't been very clear with me and I'm curious. Why did you actually believe her when she told you what she was?"
@@ -2467,26 +2526,26 @@ label start:
     sta "I guess you love it, but I can't say I'm a fan."
     tb "We can go somewhere else if you'd like."
     sta "No, this is fine."
-    s13 "Hi, welcome to Cafe le Auto."
+    sil "Hi, welcome to Cafe le Auto."
     "Am I hearing things?"
     show staci:
         linear 0.5 left
     show silvia at right with dissolve
-    s13 "Hey, [PC]."
+    sil "Hey, [PC]."
     tb "Wait, do you work here?"
-    s13 "That's right!"
+    sil "That's right!"
     if mall_date == 1:
         sta "Oh, it's you again."
         "[Silvie] glares at [Staci]."
-        s13 "I didn't think someone who doesn't like cars would come here."
+        sil "I didn't think someone who doesn't like cars would come here."
         tb "That's on me. I decided it would be nice to come here."
         "[Silvie]'s expression almost looked hurt."
-        s13 "Well, let me take your orders."
+        sil "Well, let me take your orders."
     else:
         sta "Do you know [PC]?"
         tb "This is [Silvie]. She's a good friend of mine."
         tb "[Silvie], this is [Staci]. We used to date back in high school. Since I ran into her again, I thought it'd be nice to catch up."
-        s13 "Well.{w} That's great.{w} What can I get you two?"
+        sil "Well.{w} That's great.{w} What can I get you two?"
     "We place our orders with [Silvie] and choose a table."
     hide silvia with dissolve
     show staci:
@@ -2515,7 +2574,7 @@ label start:
         linear 0.5 left
     show silvia at right with dissolve
     "[Silvie] brought our orders to us and placed them on the table. The look on her face indicated she had definitely overheard what was just said."
-    s13 "And what if he asked you to give up all of those fancy clothes you're wearing?"
+    sil "And what if he asked you to give up all of those fancy clothes you're wearing?"
     sta "Everyone needs clohtes, sweetheart. A car's just an appliance. No need to get all sentimental over it."
     #Show Silvia platinum mad
     "I definitely need to talk to [Silvie] after this. I've never seen someone look so angry."
@@ -2541,15 +2600,15 @@ label start:
         linear 0.5 center
     "I turn to [Silvie]."
     tb "Sorry to get you caught up in this silly squabble."
-    s13 "No. I guess I'm sorry I interrupted.{w} But, well..."
-    s13 "You understand."
+    sil "No. I guess I'm sorry I interrupted.{w} But, well..."
+    sil "You understand."
     show silvia:
         linear 0.5 right
     show staci:
         linear 0.5 left
     sta "I should have known that you'd get all ridiculous if I started giving my oppinions on cars."
     sta "Waitress, you can go now. Thanks for bringing the coffee."
-    s13 "..."
+    sil "..."
     "[Silvie] paused for a moment like she wanted to respond, then turned and left."
     hide silvia with dissolve
     show staci:
@@ -2630,29 +2689,29 @@ label start:
                 "Call [Silvie].":
                     "*Ring*"
                     $   sil_rel += 1
-                    s13 "Hi, [PC]."
+                    sil "Hi, [PC]."
                     tb "Hey, [Silvie]. Are you still at work? I'd like to talk to you."
-                    s13 "Yeah, I'm still here."
+                    sil "Yeah, I'm still here."
                     tb "I'll see you in a few."
                     "I hang up and drive over to Cafe le Auto as quickly as I can."
                     scene bg coffee with dissolve
                     show silvia with dissolve
-                    s13 "Hey, good to see you're alone this time."
+                    sil "Hey, good to see you're alone this time."
                     tb "I'm sorry about all the things [Staci] said earlier."
-                    s13 "You don't need to appologize for her; just promise me you're not going to get too involved with her. I'd hate to see her change you."
+                    sil "You don't need to appologize for her; just promise me you're not going to get too involved with her. I'd hate to see her change you."
                     tb "That won't be a problem. You know I'm too into cars for her anyway."
-                    s13 "You're too sweet for your own good, [PC]."
+                    sil "You're too sweet for your own good, [PC]."
                     #show silvie embarrassed
-                    s13 "Eh-{w} I mean-{w} It's just that you seem to be easily persuaded by cute girls and I don't want you to get hurt by that."
-                    s13 "I mean..."
+                    sil "Eh-{w} I mean-{w} It's just that you seem to be easily persuaded by cute girls and I don't want you to get hurt by that."
+                    sil "I mean..."
                     tb "I get it. I don't think [Staci] and I would work out any better than last time. She's fun to be around, but I'm not certain she's for me."
                     #show silvie relieved
-                    s13 "Good. I'm glad you feel that way."
+                    sil "Good. I'm glad you feel that way."
                     tb "Besides, why should I hang out with someone who hates cars when I could hang out with someone who {i}is{/i} a car?"
                     #Blushing Silvie
-                    s13 "You're right. I guess I just worry about stupid things sometimes."
+                    sil "You're right. I guess I just worry about stupid things sometimes."
                     tb "I'll call you soon."
-                    s13 "Thanks."
+                    sil "Thanks."
                     "We said our farewells and I drove back home."
                     $   renpy.jump("dend_" + str(day))
                 "Don't call.":

@@ -1,4 +1,4 @@
-﻿#Kuruma Musume v0.101
+﻿#Kuruma Musume v0.102
 
 
 
@@ -44,11 +44,16 @@ image title = "title_screen2.png"
 
 
 #character images
+#Sivlie
 image silvia = "images/Characters/Silvie.png"
+#Mia
 image mia = "images/Characters/mia-neutral.png"
+image mia smug = "images/Characters/smug_mia.png"
+#Lanna
 image lanna = "images/Characters/Lanna-Evolina.png"
+#Shelby
 image mustang ="images/Characters/Shelby.png"
-
+#Staci
 image staci = "images/Characters/thot.png"
 
 
@@ -80,7 +85,7 @@ define audio.heartbeat = "music/heartbeat.mp3"
 define audio.running = "music/running.mp3"
 define audio.cantstop = "music/cantstop.mp3"
 define audio.bed = "music/noonesleep.mp3"
-define audio.burning = "music/burningdesire.mp3"
+define audio.coffee = "music/burningdesire.mp3"
 define audio.mia = "music/burninglove.mp3"
 define audio.mall = "music/seventeen.mp3"
 define audio.forget = "music/forget.mp3"
@@ -120,9 +125,11 @@ init:
 #Dates
     $   first_date = False
     $   day2_date = False
+    $   c_date = False
 
 #Locations
     $   coffee_date = False
+    $   c_visit = False
 
 #Unique Scenarios
     #Key:
@@ -226,7 +233,7 @@ label start:
     $   PC = "{color=F6D295}" + name + "{/color}"
     "I've been working as a mechanic ever since my senior year of high school. It's the only job I ever wanted."
     "Ever since I was a kid, cars have fascinated me. The sounds, the smells, and of course the sensation of being behind the wheel."
-    "Despite all of the time I've spent under the hood of cars and all of the knowledge I have, nothing could have prepared me for that day."
+    #"Despite all of the time I've spent under the hood of cars and all of the knowledge I have, nothing could have prepared me for that day."
 
     #$   day = 2
 
@@ -237,12 +244,12 @@ label start:
 
     show silvia with dissolve
     $   with_sil = True
-    "Sick Customer" "*Cough* *Cough*"
+    "Sick Customer" "{i}*Cough* *Cough*{/i}"
 
     tb "Need a cough drop, ma'am?"
-    "Sick Customer" "No thanks. *Cough* I'll be fine. Can you please just fix me?"
+    "Sick Customer" "No thanks. {i}*Cough*{/i} I'll be fine. Can you please just fix me?"
     tb "Uh, sure. So we're going to need to replace-"
-    "Sick Customer" "I don't care what it is or how much it costs, please- *Cough* *Cough* fix it."
+    "Sick Customer" "I don't care what it is or how much it costs, please- {i}*Cough* *Cough*{/i} fix it."
     tb "Alright. Alright. I'll let you know when it's done."
 
     hide silvia
@@ -260,47 +267,135 @@ label start:
     tb "Calm down. It's really no big deal. Just my job."
     "Strangely, this woman is looking remarkably better."
     tb "You really seem healthier all of a sudden."
-    "Customer" "It's all thanks to you! We cars rarely find such amazing mechanics."
-    "I think this woman might actually be crazy."
-    "Customer" "Wait, did I just say that?"
-    tb "Look ma'am, you're welcome and all, but I've got other cars to work on, so if you'd just pay, you can go."
-    "Customer" "No, I've said too much.{w} What do I do?{w} What do I do?"
-    tb "You pay your bill and go on with your day. Seriously, lady, I just fixed your car. It's not a big deal."
-    "She took me by the hand and lead me out to her car."
-
-    scene bg sil with dissolve
+    #Additional day 0 days
+    #"Begin additional day 0 days"
+    "Customer" "Uh, yeah, I guess I feel better now."
+    tb "Well, I'm glad for that. I've got other cars to work on, so as much as I enjoy your appreciation, I need you to pay so I can get back to work."
+    "Customer" "Oh, right. Sorry, I got carried away."
+    "She pulled a wallet out of her purse and paid in cash."
+    "It's not the first time I've had a customer pay in cash for work this expensive, but it's always a bit odd."
+    "Usually they look like the kinds of people you expect to pay in cash. Either someone who probably got that money doing something illegal, or old men afraid of banks."
+    "This woman looks like the type who'd only pay with a credit card, but who am I to judge?"
+    "Customer" "Thanks again. My name's [Silvie], by the way."
+    tb "Have a nice day, [Silvie]."
+    "She stood around awkwardly for a moment before finally leaving."
+    hide silvia with dissolve
+    tb "What a strange customer."
+    "I expected that to be the last I saw of her, but as it turns out, that was only the beginning."
+    scene bg mg with fade
     show silvia with dissolve
+    tb "Too bad you didn't ask for an oil change yesterday. It would have saved you a trip back here."
+    sil "It's okay. I don't mind a little driving. Thanks so much."
+    tb "A customer is a customer. I certainly don't mind more business."
+    sil "Great. I'll just wait over here while you change my oil."
+    #show sil embarrassed
+    sil "I mean change my car's oil."
+    #show sill shy
+    sil "Or, well..."
+    sil "Yeah, while you change my oil."
+    tb "Wait wherever you want. It won't take long."
+    hide silvia with dissolve
+    "She's definitely the most unusual customer I've ever had."
+    "She could still go a little longer without an oil change, so I'm not sure why she's back already, but money is money, so who am I to turn her away?"
+    scene bg mg with fade
+    "As expected, the job didn't take long."
+    show silvia with dissolve
+    sil "Thank you so much. I really appreciate you doing this for me."
+    tb "Like I said last time, it's my job. There's no need to get emotional about it."
+    sil "I'm just really happy to have such a good mechanic to fix my car. Most do a terrible job and then charge me twice what it's worth."
+    sil "Or they try to tell me I need things I don't. I know my car. I've done a lot of the work on it myself."
+    sil "I usually change the oil myself too, but-"
+    sil "Umm... I'm busy this week. I didn't have time to do it on my own."
+    tb "Well, it's nice to see there's still some people out there that care about working on their own cars."
+    tb "I love cars, so even though it's less business for me, I think it's better for the cars in the end, so it makes me happy."
+    sil "I'll come back again if I need any more work done that I don't have time to do myself."
+    tb "Your business is always appreciated."
+    "She paid and left."
+    hide silvia with dissolve
+    "After the second day, I finally started to realize that I wasn't going to get rid of her any time soon, but I definitely didn't expect what came next."
+    scene bg mg with fade
+    show silvia with dissolve
+    tb "Your brakes?"
+    sil "Yeah. I think I need some work done on my brakes. The front right especially. I heard it squeak earlier."
+    tb "Alright. I'll give them a look. I'll be back shortly."
+    sil "Thank you!"
+    hide silvia with dissolve
+    "Now it's getting strange. I have never had anyone come back three days in a row, all for different things."
+    "Her oil didn't really need changing yesterday, and looking at her brakes now, there's no problem at all."
+    "I can't in good conscience do work on her car that she doesn't need, and I'm getting a little tired of her weird excuses for coming back here."
+    show silvia with dissolve
+    sil "Was I right? The front right needs new brake pads, doesn't it?"
+    tb "I think you know as well as I do that your brakes are just fine."
+    tb "You also know that you didn't really need an oil change yesterday, but I thought I'd let that slide in case you had a reason for getting it changed early."
+    tb "What's really going on here?"
+    sil "I knew you had a good heart."
+    sil "Can I show you something special about my car? Even a good mechanic like you wouldn't have noticed."
+    "Oh hell, what could that be?"
+    "I followed her out to her car, a knot forming in my stomach as I tried to imagine what she could be talking about."
+    scene bg sil with fade
+    show silvia with dissolve
+    "I was half-expecting there to be something dangerous or illegal hidden in a door pannel. That might have been less shocking than the truth."
+    #CG Sequence
+    sil "I'm sorry I've been bugging you so much. After the other day when we met, I was so impressed with how well you cared for me. It's so rare for cars to find such a great mechanic."
+    sil "I had to see you again yesterday, and then today, I kind of was testing you."
+    tb "Okay, you lost me. Testing me? What for?"
+    sil "I had to know if you were more than just a good mechanic, and you were. You're also a good person."
+    tb "Because I wouldn't waste your money on work you didn't need?"
+    sil "Basically, but it goes deeper than that."
+    sil "You see, I have a secret. I'm-"
+    sil "Well..."
+    sil "Let me show you."
 
-    "Customer" "Look, I need to explain something to you. I'm-"
-    "She paused and got in the car, looking up at me with concerned eyes."
 
-    hide silvia
+    #"Customer" "It's all thanks to you! We cars rarely find such amazing mechanics."
+    #"I think this woman might actually be crazy."
+    #"Customer" "Wait, did I just say that?"
+    #tb "Look ma'am, you're welcome and all, but I've got other cars to work on, so if you'd just pay, you can go."
+    #"Customer" "No, I've said too much.{w} What do I do?{w} What do I do?"
+    #tb "You pay your bill and go on with your day. Seriously, lady, I just fixed your car. It's not a big deal."
+    #"She took me by the hand and lead me out to her car."
+
+    #scene bg sil with dissolve
+    #show silvia with dissolve
+
+    #"Customer" "Look, I need to explain something to you. I'm-"
+    #"She paused and got in the car, looking up at me with concerned eyes."
+
+    hide silvia with dissolve
 
     "Without warning, she vanished! She just disappeared right in front of my eyes."
     "I opened the door and looked inside. Obviously she couldn't just be hiding somewhere; I watched her disappear."
-    "Customer" "What are you looking for?"
+    sil "What are you looking for?"
     "I turned around, thinking this was some bizarre magic trick and I'd find her standing behind me."
-    "Customer" "I'm right here, silly."
-    "That's when I realized that her voice was coming from the speakers."
-    "Customer" "Get in, please."
-    "What choice did I have? I opened the door and sat down in the driver's seat."
+    sil "I'm right here, silly."
+    "That's when I realized that her voice was coming from the car's speakers."
+    sil "Get in, please."
+    "What choice did I have to find out what's going on? I opened the door and sat down in the driver's seat."
 
     scene bg silin with dissolve
     pause 1
     show silvia
 
     "Suddenly, she appeared in the seat next to me."
-    "Customer" "As you probably already guessed, I'm not really a human."
+    sil "As you probably already guessed, I'm not really a human."
     "I definitely had not guessed that. In fact, that's the last thing I would have guessed."
     "And here I was thinking she was the crazy one, but apparently {i}I'm{/i} going crazy."
-    "Customer" "Look, I shouldn't be telling you this. We prefer to blend in with humans and we're afraid of what you'd do if you found out about us-"
-    "Customer" "But I trust you. I've been to a lot of mechanics throughout my life and I've never had one who treated me with so much love and care."
-    "Customer" "Occasionally we make exceptions to the rule about no one knowing, and I decided that you were worth it."
-    "Customer" "Also, I already kind of gave myself away inside, so..."
-    "I was at a loss for words. What is this insanity? Is she trying to tell me that she's literally the car?"
-    tb "Are you saying what I think you are."
-    "Customer" "Please be my personal mechanic forever!"
-    "She reached across and hugged me again."
+    sil "Look, I shouldn't be telling you this. We prefer to blend in with humans and we're afraid of what you'd do if you found out about us."
+    sil "But I trust you. I've been to a lot of mechanics throughout my life and I've never had one who treated me with so much love and care."
+    sil "Occasionally we make exceptions to the rule about no one knowing, and I decided that you were worth it."
+    #"Customer" "Also, I already kind of gave myself away inside, so..."
+    "I was at a loss for words. What is this insanity? Was she actually telling me that she's {i}literally the car{/i}?"
+    tb "Are you saying what I think you are?"
+    sil "I know this is probably weird for you..."
+    sil "It's weird for me too. I've never told a human."
+    sil "But I need to ask you a favor."
+    "A car is asking me a favor? What the hell is this?"
+    sil "Cars need a lot of work and, I mean..."
+    sil "Sure, I like to work on myself, but sometimes it's nice to, you know..."
+    sil "Have someone else work on you."
+    sil "I'm sorry! That's really embarassing to say. I don't mean to make this weird, just..."
+    sil "Can you be my personal mechanic?"
+    #"She reached across and hugged me again."
 
     menu:
         "Alright, I will.":
@@ -320,12 +415,16 @@ label start:
 
     label bemechanic_yes:
 
+
     tb "This is absolutely the craziest thing to ever happen to me, but I'm fascinated all the same."
-    tb "I have a question, though."
-    "Customer" "Yeah?"
-    tb "What's your name?"
-    sil "You can call me [Silvie]."
-    "From that moment on, my life changed forever."
+    tb "So, I guess I'll agree. I'd love to learn more about something so unbelievable."
+    sil "Yes! Thank you! You made this a happy day."
+    "From that moment on, nothing would ever be the same. Only time would tell if it was for the best, and I couldn't wait to find out."
+    #tb "I have a question, though."
+    #"Customer" "Yeah?"
+    #tb "What's your name?"
+    #sil "You can call me [Silvie]."
+    #"From that moment on, my life changed forever."
     stop music fadeout 1.5
 
     pause 1.5
@@ -351,7 +450,7 @@ label start:
     scene bg silin with dissolve
 
     show silvia with dissolve
-
+    #This section could use more work to stretch things out a little bit
     sil "It's weird, but it actually feels good that a human knows about me."
     tb "You think so?"
     sil "Yeah! Normally we keep ourselves pretty secret. Sometimes even we can't recognize each other."
@@ -366,18 +465,18 @@ label start:
     sil "It's the only theory I've ever heard that makes any sense."
     tb "Are you really all girls?"
     sil "Yup. We're still trying to figure that one out too, but we suspect that the same thing used to happen with ships back when it took a lot more work to build them."
-    sil "It would explain why boats are always called she."
+    sil "If that's the case, it would explain why boats are always called \"she.\""
     tb "I guess it would."
     tb "So how do you recognize other car girls?"
-    sil "We like the term {i}Kuruma Musume{/i}."
+    sil "We call ourselves {i}Kuruma Musume{/i}."
     sil "When you know enough about cars, you can start recognizing what Kuruma Musumes look like. We always look a little like the cars we're born from."
     sil "Not to mention the fact that we aren't able to get too far away from our car selves, so someone who won't walk far from her car probably is the car."
     sil "It's probably easier for us to tell than it is for humans, but I'm sure you'd learn to recognize us if you met some more."
-    tb "You should introduce me to some others then. This is fascinating."
-    sil "Maybe."
+    tb "You should introduce me to some others then! This is the coolest thing I've ever experienced in my life!"
+    sil "Maybe I could."
     sil "We're usually pretty shy, so I don't know if any others will want to meet you."
     sil "N-not that I'd be jealous of you talking to someone else!"
-    "Oh no. I hope she's not one of {i}those{/i} types."
+    #"Oh no. I hope she's not one of {i}those{/i} types."
     tb "Oh well. If I have you around, I'm sure I'm bound to meet another car at some point anyway."
     sil "We'll see."
     sil "So, we've been seeing each other for a few days now, but we never really do anything. So I was wondering, do you want to go get coffee or something?"
@@ -477,7 +576,7 @@ label start:
         jump sil_park_date1
 
     else:
-        jump evo_park_date1
+        jump lan_park_date1
 
 
 
@@ -870,7 +969,7 @@ label start:
         lan "Ah ha ha ha ha ha!"
         lan "I can't believe you used to date that bimbo."
         lan "I guess I had you figured all wrong.{w} I thought you were just some desperate virgin too busy with his car to see a pretty girl in front of him."
-        lan "But apparently you were into those big tiddied air heads."
+        lan "But apparently you're into those big tittied air heads."
         tb "I don't really want to talk about [Staci]."
         lan "How does the man who loves cars end up with someone like her?"
         tb "High school was a rough time for me. Somehow Staci ended up actually caring about me."
@@ -1056,7 +1155,9 @@ label start:
                     $   renpy.jump("sta_dc" + str(sta_date+1))
 
                 "Call [Lanna]" if lanna_number:
-                    return
+                    $   call_lan = True
+                    $   lan_rel += 3
+                    $   renpy.jump("lan_dc" + str(lan_date+1))
 
                 "Call [Shelby]" if shelby_number:
                     return
@@ -1083,6 +1184,7 @@ label start:
                     "I could probably use a few extra tools. I guess I'll go check Parts 4 U."
                     if mia_date < 1:
                         jump mia_p4uintro
+                    #elif something
 
                 "Call someone":
                     jump d3_call
@@ -1233,6 +1335,24 @@ label start:
     tb "Great. I'll see you soon."
     jump staci_coffee1
 
+    #Lanna
+    #Date 2
+    label lan_dc2:
+    "I decided to call Lanna."
+    lan "Hey, [PC]. I figured you'd call soon."
+    "She picked up before it even finished ringing once."
+    tb "Yeah, so anyway, I was wondering if we could see each other again today?"
+    lan "Hell yeah! I could go for some coffee or something right now. You wanna meet me over at Hakone Cafe?"
+    if c_date:
+        tb "Sounds good to me. I'll see you in a few minutes."
+        lan "Awesome!"
+    else:
+        tb "Where is that? I think that's the coffee place near my shop."
+        lan "Just put it in your GPS. There's only one in town, so it should be easy to find."
+        tb "Alright, I'll see you soon."
+    jump    lan_coffee_date1
+
+
 
 
 #Dates
@@ -1248,9 +1368,10 @@ label start:
 
     scene bg coffee with dissolve
 
-    play music burning fadein 1.5
+    play music coffee fadein 1.5
+    $   c_visit = True
 
-    "Hostess" "Welcome to Cafe Le Auto. Please have a seat."
+    "Hostess" "Welcome to Hakone Cafe. Please have a seat."
 
     if sil_date < 1:
         if day > 1:
@@ -1263,6 +1384,7 @@ label start:
 
     label no_first_day_date:
     show silvia
+    $   c_visit = True
     if call_silvie == False:
         sil "Hey, [PC]! What are you doing here?"
         "Looks like [Silvie]'s here today too."
@@ -1300,6 +1422,7 @@ label start:
 
     $   first_date = True
     $   sil_coffee_date1 = True
+    $   c_visit = True
 
     show silvia
     tb "So do most cars like coffee?"
@@ -1403,13 +1526,15 @@ label start:
         show mia:
             right
             linear 0.5 center
-
+        pause .5
+        show mia smug
         "[Mia] whispered something to [Silvie] and her blush brightened."
 
-        show mia:
+        show mia smug:
             center
             linear 0.5 right
-
+        pause .5
+        show mia
         mia "Well, it was nice to meet you. I've got places to be, so I'll stop interrupting your date. You two have a nice evening."
 
         hide mia
@@ -1812,7 +1937,7 @@ label start:
     mia "Fine. I'd better tell [Silvie] that you're hopeless and she should give up on you though."
     tb "So, since I clearly don't know enough about Kuruma Musume, would you be interested in grabbing a cup of coffee and having a chat with me? I'd love to learn more."
     mia "Eh, sure. Maybe I can teach you how to not embarrass yourself in front of [Silvie] at the very least."
-    mia "Does Cafe le Auto sound good?"
+    mia "Does Hakone Cafe sound good?"
     if coffee_date:
         tb "That sounds perfect."
     else:
@@ -1822,7 +1947,7 @@ label start:
     #CG of Mia driving down the road ahead of Tofuboy from TB's perspective.
     "CG - See note in code"
     "I got in my car and followed [Mia]. She was hard to keep up with, yet I got the strangest feeling that she was trying to make it easier for me."
-    "Show Cafe le Auto exterior"
+    "Show Hakone Cafe exterior"
     if coffee_date:
         mia "Wasn't too hard to follow, was I?"
         tb "Nah, I could keep up just fine. You're pretty good though."
@@ -1836,7 +1961,7 @@ label start:
     stop music fadeout 1.5
 
     show bg coffee with dissolve
-    play music burning fadein 1.5
+    play music coffee fadein 1.5
 
     if coffee_date == False:
         "Mia was right. I love the car aesthetic in here."
@@ -1858,12 +1983,13 @@ label start:
     #Mia Coffee Date 1
 
     label mia_coffee_date1:
+    $   c_visit = True
 
     stop music fadeout 1.5
 
     show bg coffee with dissolve
 
-    play music burning fadein 1.5
+    play music coffee fadein 1.5
 
 
 
@@ -2243,17 +2369,17 @@ label start:
 
 
     return
-    #Evo Dates
+    #Lanna Dates
 
-    #Evo Park Date 1
+    #Lanna Park Date 1
 
-    label evo_park_date1:
+    label lan_park_date1:
     scene bg park with dissolve
     play music park fadein 1.5
     "I wouldn't really consider myself an outdoorsy person, but I always love coming to this park."
     "The trees, the air, the sound of the ducks over by the pond all add together into an almost magical feeling."
     if  lan_met == True:
-        jump evo_park_date1_2
+        jump lan_park_date1_2
     label evo_meet:
     "Noisy Woman" "Leave me alone you creep."
     "Noisy Man" "Baby, please. Don't make such a scene."
@@ -2318,14 +2444,14 @@ label start:
             lan "Great!"
             $   lan_rel += 2
             $   with_lan = True
-            jump evo_park_date1_2
+            jump lan_park_date1_2
         "Nah, I should really get going.":
             tb "Maybe some other time."
             lan "That's fine. Just give me a call if you want to meet up!"
             $   lan_met = True
             jump solo_mall1
 
-    label evo_park_date1_2:
+    label lan_park_date1_2:
     $   with_lan = True
     if lan_met == False:
         $   lan_met = True
@@ -2366,7 +2492,7 @@ label start:
     lan "Some guy who's apparently devoted his life to cars and isn't even brave enough to take a chance with the girl who actually {i}is{/i} a car?"
     lan "Yeah, kind of a pussy."
     lan "But knowing [Silvie], she doesn't care either way. Aren't you lucky?"
-    "This car's not just different from other cars, she's different from any other girls I've known."
+    "This car's not just different from other cars, she's different from any other girl I've known."
     tb "Does it have to be about dating?"
     lan "Come on. You like cars, don't you? You've never wanted to date a car before?"
     lan "You can't convince me that you haven't thought about going steady with [Silvie]."
@@ -2401,7 +2527,8 @@ label start:
     lan "Ah. It's been nice here, but I should probably get going."
     $   lan_date += 1
     scene bg park with dissolve
-    show lanna
+    show lanna with dissolve
+    "Note: This scene transition is for coming out of the CG sequence"
     if day == 2:
         lan "You want to go for a ride with me? Maybe hit the mall afterwards?"
         menu:
@@ -2508,6 +2635,65 @@ label start:
     return
 
 
+    #Lanna Coffee Date
+    label lan_coffee_date1:
+    stop music fadeout 1.5
+    scene bg coffee with dissolve
+    play music coffee fadein 1.5
+    $   with_lan = True
+    show lanna with dissolve
+    lan "Sup, [PC]?"
+    tb "I should have known you'd beat me here."
+    lan "There aren't many who can beat me anywhere."
+    tb "So you've lost races?"
+    lan "Everyone has to lose some time. The trick is to make it as few times as possible."
+    tb "What kind of races have you lost?"
+    lan "Only races against other Kuruma Musume. Humans can't quite keep up with us."
+    #show lanna flirty
+    lan "Don't feel bad though, you guys are still give us a fun race."
+    lan "And other fun."
+    "I think I can take a pretty good guess at what she means by that."
+    tb "You certainly do have a dirty mind."
+    lan "What can I say? I'm a rally car. I like to get dirty."
+    #show lanna wink
+    tb "You know I'm not that easy, I hope."
+    lan "Oh, I know. Most guys would have already found my back seat. I like the challenge, though."
+    tb "I'm not sure I'm okay with being a goal."
+    lan "Life's a game. My goal is to win you over, and your goal is to see how long you can resist."
+    menu:
+        "I'm not playing this game.":
+            $   lan_rel -= 1
+            lan "Oh, come on. It's fun. I'm not going to force you to do anything."
+            tb "It's not that I'm not{w} er...{w} attracted to you."
+            tb "I guess I am, but this just isn't the way I do things."
+            lan "Well, I guess I just have to hope you change your mind."
+            tb "Besides, the whole Kuruma Musume thing itself is really sudden. I'm still trying to get used to the fact that I can talk to cars."
+        "I guess you have a point.":
+            $   lan_rel += 1
+            tb "Fine. I'll play your game."
+            lan "Excellent. I'm one step closer to winning."
+            "I think I was already tricked."
+    lan "Okay, okay. Let's change the subject. Have you ever worked on a car like me before?"
+    tb "A few times. Not the same year as you, but I've worked on a few."
+    lan "So would you work on me if I came into your shop?"
+    tb "Of course, as long as you can pay."
+    lan "What if I came in and I couldn't? Wouldn't you be willing to fix me up?"
+    "I walked into a trap."
+    tb "Umm..."
+    lan "I could pay you in another way, of course."
+    tb "I thought you were changing the subject."
+    lan "You should see how red your face just got."
+    "This car is crazy."
+    lan "Fine, I'll let you off the hook. I promise, if I come into your shop, I'll be sure to pay with actual money."
+    tb "I've gotta say, you are different from any other girl I've ever met."
+    lan "Well I'd hope. Cars should be different from the average girl you meet."
+    tb "You're different from every car I've met as well."
+
+
+
+
+    return
+
 
     #Staci Dates
 
@@ -2515,7 +2701,7 @@ label start:
     label staci_coffee1:
     stop music fadeout 1.5
     scene bg coffee with dissolve
-    play music burning fadein 1.5
+    play music coffee fadein 1.5
     "I picked Staci up and took her to the little coffee place near the shop."
     show staci with dissolve
     sta "This is a very strange coffee shop. What's with all of the car decorations?"
@@ -2526,7 +2712,7 @@ label start:
     sta "I guess you love it, but I can't say I'm a fan."
     tb "We can go somewhere else if you'd like."
     sta "No, this is fine."
-    sil "Hi, welcome to Cafe le Auto."
+    sil "Hi, welcome to Hakone Cafe."
     "Am I hearing things?"
     show staci:
         linear 0.5 left
@@ -2693,7 +2879,7 @@ label start:
                     tb "Hey, [Silvie]. Are you still at work? I'd like to talk to you."
                     sil "Yeah, I'm still here."
                     tb "I'll see you in a few."
-                    "I hang up and drive over to Cafe le Auto as quickly as I can."
+                    "I hang up and drive over to Hakone Cafe as quickly as I can."
                     scene bg coffee with dissolve
                     show silvia with dissolve
                     sil "Hey, good to see you're alone this time."

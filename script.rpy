@@ -1,4 +1,4 @@
-﻿#Kuruma Musume v0.102
+﻿#Kuruma Musume v0.103
 
 
 
@@ -225,6 +225,7 @@ label start:
     play music heartbeat fadein 1.5
 
     #Day 0
+    "This game is still in early development. Most assets are placeholders and writing is ongoing. This game will look vastly different in the final release."
     python:
         name = renpy.input("My name is...")
 
@@ -281,7 +282,7 @@ label start:
     "She stood around awkwardly for a moment before finally leaving."
     hide silvia with dissolve
     tb "What a strange customer."
-    "I expected that to be the last I saw of her, but as it turns out, that was only the beginning."
+    "I expected that to be the last I saw of her, but as it turned out, that was only the beginning."
     scene bg mg with fade
     show silvia with dissolve
     tb "Too bad you didn't ask for an oil change yesterday. It would have saved you a trip back here."
@@ -293,7 +294,7 @@ label start:
     #show sill shy
     sil "Or, well..."
     sil "Yeah, while you change my oil."
-    tb "Wait wherever you want. It won't take long."
+    tb "Wait wherever you want.{w} It won't take long."
     hide silvia with dissolve
     "She's definitely the most unusual customer I've ever had."
     "She could still go a little longer without an oil change, so I'm not sure why she's back already, but money is money, so who am I to turn her away?"
@@ -310,7 +311,7 @@ label start:
     tb "I love cars, so even though it's less business for me, I think it's better for the cars in the end, so it makes me happy."
     sil "I'll come back again if I need any more work done that I don't have time to do myself."
     tb "Your business is always appreciated."
-    "She paid and left."
+    "With a shy smile, she paid and left."
     hide silvia with dissolve
     "After the second day, I finally started to realize that I wasn't going to get rid of her any time soon, but I definitely didn't expect what came next."
     scene bg mg with fade
@@ -444,8 +445,8 @@ label start:
 #Days
 
     #Day 1
-    "That day changed my life"
-    "Over the next few days, we met each other after I finished with work."
+    "That day changed my life."
+    "Every evening over the next few days, we met each other after I finished with work."
 
     scene bg silin with dissolve
 
@@ -653,12 +654,14 @@ label start:
     "[Mia] browsed through the shirts before focussing on one particular shirt covered in multi-colored hearts."
     mia "Oh! This one's cute! What do you think?"
     tb "Hmm. {w}I think it suits you."
+    show mia smug
     mia "You're just saying that because you have no clue."
     tb "Okay, yeah."
+    show mia
     mia "Ha-haha! It's fine. I don't really care what you think anyway. It's like my popups. If I like 'em, I'm keeping them. Screw what anyone thinks."
     tb "Your headlights? Do people actually tell you to get rid of them?"
     mia "All the time. I go to car meets pretty regularly and there's always a few people who tell me they don't like the popups."
-    mia "It's like, \"then take 'em off {b}YOUR{/b} car.\" Popups are cute and I want to be cute."
+    mia "It's like, \"then take 'em off {b}{i}YOUR{/i}{/b} car.\" Popups are cute and I want to be cute."
     "I've never been a huge fan of popups myself, but I better not tell her that."
     tb "They should respect the build."
     mia "Right?"
@@ -723,7 +726,7 @@ label start:
     lan "Damn."
     "Store Employee" "We have a few coppies of the new Plumber Kart if you're looking for racing games."
     lan "Ha{w} ha{w} ha{w} ha.{w} Obviously I'm looking for a real racing game, not some dumb cartoon for kids."
-    "Store Employee" "I'm so sorry. I meant no offense!"
+    "Store Employee" "I'm so sorry. I didn't mean to offend you."
     lan "What else do you have that's new?"
     "Store Employee" "Do you like shooters?"
     lan "I guess."
@@ -843,16 +846,19 @@ label start:
     "Busty Woman" "[PC]?"
     "I know that voice."
     "Busty Woman" "[PC]! It's you! I haven't seen you in years!"
-    play music forget fadein 2
     if solo:
         show staci with dissolve
     else:
-        show staci at left with dissolve
+        show staci:
+            xalign -.75 yalign 1.0
+            linear 0.5 left
     tb "[Staci]! I haven't seen you since high school."
     sta "I know. It's crazy."
+    play music forget fadein 2
 
     if with_mia:
         sta "Is this your daughter?"
+        show staci behind mia
         mia "I most certainly am not.{w} [PC], who is this woman?"
         tb "[Mia], this is [Staci]. [Staci], [Mia]."
         tb "[Staci] was my girlfriend for a couple years in high school, and [Mia] is a friend I made recently."
@@ -866,6 +872,7 @@ label start:
 
     elif with_sil:
         sta "Oh, is she your girlfriend?"
+        show staci behind silvia
         sil "I... {w=0.5} I'm... {w=0.5} It's not like..."
         tb "She's my friend. We met a few days ago at work."
         sta "I see."
@@ -877,6 +884,7 @@ label start:
 
     elif with_lan:
         sta "Is this your girlfriend?"
+        show staci behind lanna
         "I see [Lanna] open her mouth, but I don't give her the chance to speak."
         tb "{cps=*2}Nah, I just met her.{/cps}"
         "[Lanna] closes her mouth and gives me an unenthused look."
@@ -894,6 +902,7 @@ label start:
        sta "Am I interrupting a date?"
        tb "No actually, this is new friend, we bonded over... working on cars."
        sta "Oh. Well that explains why she's so... dirty."
+       show staci behind mustang
        she "Excuse me?"
        "I shoot [Shelby] an appologetic glance."
        tb "[Shelby], this is [Staci]. She was my girlfriend for a few years in high school."
@@ -1007,8 +1016,8 @@ label start:
 
     #Back at Day2 Start
     if with_mia:
-        scene bg miain
-        show mia at right
+        scene bg miain with dissolve
+        show mia at right with dissolve
         play music mia fadein 2
 
         "[Mia] kept quiet as we drove away from the mall."
@@ -1030,7 +1039,7 @@ label start:
         $   renpy.jump("dend_" + str(day))
 
     elif with_sil:
-        scene bg silin
+        scene bg silin with dissolve
         show silvia with dissolve
         play music fallapart fadein 2
         "[Silvie]'s mood didn't improve as we drove. She was quite for most of the way, and I didn't know what I could say to fix things."
@@ -1050,7 +1059,7 @@ label start:
 
 
     elif with_lan:
-        scene bg lanin
+        scene bg lanin with dissolve
         show lanna at right with dissolve
         play music kisstokiss fadein 1.5
         lan "You know, [PC], you're alright."
@@ -1071,7 +1080,7 @@ label start:
         $   with_lan = False
 
     elif with_she:
-        scene bg stang
+        scene bg stang with dissolve
         play music she fadein 1.5
         show shelby at left with dissolve
         "We drove back to the parts store where I was parked."
@@ -1190,6 +1199,11 @@ label start:
                     jump d3_call
 
     label dend_3:
+    stop music fadeout 1.5
+
+    scene bg bed with dissolve
+
+    play music bed fadein 1.5
 
     "I should really get some rest."
 
@@ -1216,6 +1230,8 @@ label start:
                     $   renpy.jump("sil_dc" + str(sil_date +1))
 
                 "Call [Mia]" if mia_number:
+                    if mia_date == 2:
+                        return
                     $   call_mia = True
                     $   mia_rel += 3
                     $   renpy.jump("mia_dc" + str(mia_date+1))
@@ -1449,6 +1465,7 @@ label start:
     sil "Though maybe it's because of the souls who created us. My owner was a street racer when I was born, so maybe that's why."
     tb "You better be careful out there if you're racing. I think I'd prefer it if I didn't have to fix you."
     sil "It's fine. I'm a pretty good driver."
+    stop music fadeout 2
 
     if mia_met:
         mia "Hey, [Silvie]! I didn't expect to see you here today."
@@ -1461,9 +1478,10 @@ label start:
     show silvia at slideleft
     show mia behind silvia:
         xalign 1.75 yalign 1.0
-        linear 0.5 right
+        linear 0.25 right
 
 
+    play music mia fadein 2
     sil "Oh, hi [Mia]. How are you?"
     if mia_met:
         mia "Doin' pretty good. Hi, [PC]. Nice to see you again."
@@ -1494,7 +1512,9 @@ label start:
         hide mia
         with moveoutright
 
+        stop music fadeout 0.5
         $   with_mia = False
+        play music coffee fadein 0.5
 
         show silvia:
             left
@@ -1525,14 +1545,14 @@ label start:
 
         show mia:
             right
-            linear 0.5 center
-        pause .5
+            linear 0.25 center
+        pause .20
         show mia smug
         "[Mia] whispered something to [Silvie] and her blush brightened."
 
-        show mia smug:
+        show mia:
             center
-            linear 0.5 right
+            linear 0.25 right
         pause .5
         show mia
         mia "Well, it was nice to meet you. I've got places to be, so I'll stop interrupting your date. You two have a nice evening."
@@ -1540,7 +1560,9 @@ label start:
         hide mia
         with moveoutright
 
+        stop music fadeout 0.5
         $   with_mia = False
+        play music coffee fadein 0.5
 
         show silvia:
             left
@@ -1551,13 +1573,13 @@ label start:
         tb "Don't worry about it. That's just how kids are. So do you know her mom or something?"
         sil "Kid? You mean you couldn't tell?"
         sil "[Mia] is another kuruma musume."
-        "I looked out of the window and sure enough, there went that little girl peeling out of the parking lot in the driver's seat of her own car."
+        "I looked out of the window and sure enough, there went that same child peeling out of the parking lot in the driver's seat of her own car."
         "Insert CG of [Mia] driving away"
         tb "Seriously!? But she looks so young!"
         sil "Well, she is a pretty small car. Most older roadsters are about her size."
         tb "I can only imagine how the police react to seeing a kid driving around like that."
         sil "She's good at playing up the cute and innocent act, so I think they're usually pretty lenient once they see her ID."
-        tb "Do you girls get fake driver's licenses?"
+        tb "ID? Like, a real driver's license or do you get good quality fake IDs?"
         sil "Some of us manage to get real ones. I'm sure she has a real license. It's just a nightmare trying to sort out the paperwork when the only document you have is a title."
         tb "I see."
         $   mia_met = True
@@ -2004,11 +2026,12 @@ label start:
     tb "[Silvie] really does have good taste."
     mia "Is that so?"
     $   with_mia = True
-    show mia with dissolve
+    show mia smug with dissolve
     tb "Oh, did I say that out loud?"
     if call_mia == True:
         "She can be really quiet when she wants to. I never noticed her come in."
 
+    show mia
     mia "Ha-haha! Not quite as red as she was, but I still got you."
     "The nerve of this girl."
     tb "I bet I can get you."
@@ -2025,7 +2048,7 @@ label start:
     label m_alt_intro_link:
     tb "Well, the only other option was that I was crazy after the way she revealed herself, so I like the option that means I'm not insane."
     mia "She fused in front of you, didn't she?"
-    tb "If you mean got in her car and vanished into thin air, then started talking to me through the speakers, then yeah. She fused."
+    tb "If you mean vanished into thin air, then started talking to me through the speakers, then yeah. She fused."
     mia "I hope she at least gave you some warning."
     tb "None at all."
     mia "Ha-haha. That's [Silvie] for you. She's got a good heart, but she's pretty careless sometimes. {w}Even on the road."
@@ -2070,7 +2093,7 @@ label start:
     tb "Is the money good at least?"
     mia "It's acceptable. Considering my actual job, any extra is good."
     tb "But what if you lose?"
-    "[Mia] bored holes through me with her stare."
+    "[Mia] bores holes through me with her stare."
     mia "I never lose."
     tb "Never?"
     mia "Never."
@@ -2214,7 +2237,7 @@ label start:
     "Insert horn honk sound effect here"
     pause
     "That's probably her."
-    "I walk outside to find [Mia] leaning against the side of her car waiting me."
+    "I walk outside to find [Mia] leaning against the side of her car waiting for me."
     #Show CG of Mia as described
     $   with_mia = True
     mia "Not gonna make me wait forever, are you?"
@@ -2239,10 +2262,10 @@ label start:
     mia "I mean, I try to make both of my bodies cute, but they say it like it's a bad thing.{w} Like I'm not capable because I'm just some tiny little car."
     tb "I guess that would suck."
     mia "And 'cause I look like a kid, people treat me like a kid. Even when they know my age."
-    if mall_date == mia:
+    if mall_date == 2:
         tb "Well, you do buy your clothes from Not-Justice."
         mia "And what of it? They're cute arne't they? So what if they were made for kids. Clothes don't make me who I am."
-    tb "Sometimes you act a little childish."
+    tb "Sometimes you do act a little childish."
     mia "Are humans one-dimensional? Do you not have multiple sides? I didn't think that was a trait only reserved for cars."
     tb "Sorry, I didn't mean it like that."
     tb "It's just that people often let their first impressions be the only judge of who someone is."
@@ -2255,7 +2278,7 @@ label start:
     tb "For what it's worth, I think you're an excellent driver, and a wonderful car."
     #show mia blush
     mia "C- Come on. Don't make this weird."
-    tb "Alright."
+    tb "Haha. Alright."
     "We continued to have lighter conversations until we pulled up on what appeared to be a very nice Italian restaurant."
     mia "They have a vallet here, so I'm going to disappear for a minute to make sure he's not an idiot when he parks me."
     tb "I'll wait for you inside."
@@ -2269,7 +2292,7 @@ label start:
     tb "Two. She should be here in just a minute."
     show mia with dissolve
     mia "Hi, Christy."
-    "Christy" "Oh, hey Mia. I haven't seen you in here in a while."
+    "Christy" "Oh, hey [Mia]. I haven't seen you in here in a while."
     mia "Yeah, well, it's a special day."
     "Christy" "I imagine so."
     "Christy looks me up and down."
@@ -2304,10 +2327,10 @@ label start:
             mia "Maybe a little. [Silvie] gets jealous pretty easily, but we're good friends. She knows I've got her back."
             tb "I don't want to cause any trouble in your friendship."
             mia "You're really sweet. It's a good thing [Silvie] opened up to you. She's pretty shy with humans."
-            tb "Just let me know if I'm causing you girls any problems."
+            tb "Just let me know if I'm causing you cars any problems."
             mia "Don't worry so much. You're fine."
     "The waitress comes after a few minutes to take our orders. Half of the menu was in Italian, so I went the easy route and ordered spaghetti."
-    tb "I bet a lot of fancy sports cars come here."
+    tb "I bet a lot of expensive Italian sports cars come here."
     mia "Ha-haha! When was the last time you saw some Italian trash being worked on with love?"
     mia "I mean, worked on, sure, but not the kind of work that's gonna birth a Kuruma Musume."
     mia "Best case is some cheap economy Italian car showing up here if she hasn't spent all her money on repairs."
@@ -2324,9 +2347,11 @@ label start:
     mia "Don't let anyone ever try to tell you that [Mia] has bad taste."
     tb "Sure. At least when it comes to food."
     mia "What's that supposed to mean?"
-    "I gave her a teasing grin."
+    "I give her a teasing grin."
+    show mia smug
     mia "Oh, you're right. Since I'm hanging out with you, I must have terrible taste in people."
-    mia "But hey, at least you have good taste in cars."
+    show mia
+    mia "But hey, at least {i}you{/i} have good taste in cars."
     #show mia wink
     "The dinner was excellent. We ate and talked well into the evening, sharing stories of our pasts."
     "It was mostly [Mia] sharing the stories, and mostly about the races she's won. The excitement she expressed over each victory gave me equal amounts of joy."
@@ -2361,7 +2386,7 @@ label start:
     if ms_help:
         "[Mia] offered to help, so maybe I should take her up on that, or maybe I should go it on my own."
     "I'm going to have to be more conscious of how I handle things with [Silvie] from now on. Even if I don't end up with her, I don't want to hurt her."
-
+    $   mia_date += 1
     $   renpy.jump("dend_" + str(3))
 
 
@@ -2382,7 +2407,7 @@ label start:
         jump lan_park_date1_2
     label evo_meet:
     "Noisy Woman" "Leave me alone you creep."
-    "Noisy Man" "Baby, please. Don't make such a scene."
+    "Noisy Man" "Baby, please. Don't make a scene."
     "Well, it {i}was{/i} an almost magical feeling."
     "Noisy Woman" "It was one night, and a night I'll always regret. Now get lost."
     "Noisy Man" "But-"
@@ -2404,14 +2429,14 @@ label start:
     "Noisy Woman" "Take a hint and get out of here!"
     "Now she's looking at me."
     "Noisy Woman" "What? You want some too?"
-    tb "No. No thanks. I was just wondering what all the commotion was about."
+    tb "N-No thanks. I was just wondering what all the commotion was about."
     "Noisy Woman" "The commotion was about some some whiny little turd who just can't seem to understand how a woman wouldn't want him."
     tb "I'm sorry."
     "Noisy Woman" "The hell are you appologizing for? Was he your friend?"
     tb "Nope. Never met the guy and don't really care to."
     "Noisy Woman" "Can't believe I even gave him a chance after he insulted my car."
     tb "Insulting a woman's car? Truly the reddest of flags."
-    "Noisy Woman" "Are you mocking me?"
+    "Noisy Woman" "Are you making fun of me?"
     #show lanna angry
     tb "No! No! Sorry, I didn't mean it like that. Some of my best friends are cars."
     #show lanna confused
@@ -2423,7 +2448,7 @@ label start:
     "Noisy Woman" "For pete's sake, not right here."
     "I looked around and saw half a dozen faces watching us. I probably should shut up."
     "Noisy Woman" "Look, let's just get out of here and find somewhere a bit quieter, okay?"
-    "She lead me to a quiet part of the park where the magic of nature once again eveloped me in its magesty."
+    "She lead me to a quiet part of the park where the magic of nature once again enveloped me in its magesty."
     "Noisy Woman" "So before you go blabbing your mouth again without thinking, I'll answer the questions you're about to ask."
     "Noisy Woman" "Yes, I'm a car.{w} Yes, I know [Silvie]. Who doesn't?{w} No, I will not date you. You already saw how my last almost-relationship ended up."
     tb "What about your name?"
@@ -2492,7 +2517,7 @@ label start:
     lan "Some guy who's apparently devoted his life to cars and isn't even brave enough to take a chance with the girl who actually {i}is{/i} a car?"
     lan "Yeah, kind of a pussy."
     lan "But knowing [Silvie], she doesn't care either way. Aren't you lucky?"
-    "This car's not just different from other cars, she's different from any other girl I've known."
+    "This car's not just different from other cars, she's different from every girl I've ever known."
     tb "Does it have to be about dating?"
     lan "Come on. You like cars, don't you? You've never wanted to date a car before?"
     lan "You can't convince me that you haven't thought about going steady with [Silvie]."
@@ -2640,19 +2665,21 @@ label start:
     stop music fadeout 1.5
     scene bg coffee with dissolve
     play music coffee fadein 1.5
+    "I arrived as quickly as I could, but Lanna's car was already sitting in the parking lot, so I went inside to find her."
     $   with_lan = True
     show lanna with dissolve
     lan "Sup, [PC]?"
     tb "I should have known you'd beat me here."
+    "I join her at the table where she's already sitting with a cup of coffee."
     lan "There aren't many who can beat me anywhere."
     tb "So you've lost races?"
     lan "Everyone has to lose some time. The trick is to make it as few times as possible."
     tb "What kind of races have you lost?"
     lan "Only races against other Kuruma Musume. Humans can't quite keep up with us."
     #show lanna flirty
-    lan "Don't feel bad though, you guys are still give us a fun race."
+    lan "Don't feel bad though, you guys can still give us a fun race."
     lan "And other fun."
-    "I think I can take a pretty good guess at what she means by that."
+    "There she goes again. She moves fast as a car, but even faster as a girl."
     tb "You certainly do have a dirty mind."
     lan "What can I say? I'm a rally car. I like to get dirty."
     #show lanna wink
@@ -2684,10 +2711,201 @@ label start:
     tb "I thought you were changing the subject."
     lan "You should see how red your face just got."
     "This car is crazy."
-    lan "Fine, I'll let you off the hook. I promise, if I come into your shop, I'll be sure to pay with actual money."
+    lan "Fine, I'll let you off the hook. I promise, if I ever come into your shop, I'll be sure to pay with actual money."
     tb "I've gotta say, you are different from any other girl I've ever met."
-    lan "Well I'd hope. Cars should be different from the average girl you meet."
-    tb "You're different from every car I've met as well."
+    lan "Well I'd hope. Cars are usually a little different from the average girl you meet. Wheels instead of feet and all that."
+    tb "You know what I mean. I've never met anyone so forward like this."
+    if mall_date == 3:
+        lan "I told you before: if you aren't forceful, people will ignore you or run over you."
+    else:
+        lan "If you're not up front and forceful with people, they'll just ignore you or run over you."
+    lan "Isn't it better to know that someone's open to you than to have to wonder what they're hiding?"
+    tb "I guess it's nice that I don't have to wonder about your intentions, but what if I don't feel the same about you?"
+    lan "Then say so. If you don't want me, then just tell me. I'll leave and you won't have to deal with me any more."
+    $   lan_date += 1
+    menu:
+        "I want you.":
+            jump lanna_ending_TooSoon
+
+        "I'm not sure.":
+            $   lan_rel += 1
+            tb "You already know I don't like to move that fast. I take my time with these things."
+            lan "I knew you'd say that. That's why we're still here talking."
+            lan "It's not that you don't want me, it's that you aren't sure what you want."
+            tb "I guess you have me all figured out, huh?"
+            lan "I know who I am, and I know who you are. I can give it a little while until you figure it out for yourself. Just don't think I'll wait forever."
+            tb "I guess that's fair."
+
+        "I don't want you. Not like that, at least.":
+            $   lan_rel = 0
+            tb "I'm sorry, this just isn't me."
+            lan "Well then.{w} Thanks for telling me.{w} Won't have to waste any more time this way, I guess."
+            lan "Here, let me see your phone."
+            "She quickly took my phone away."
+            lan "It's a shame, really. I thought we might have something here, but I can't change how you feel."
+            play sound cell
+            "{color=FFF700}Removed [Lanna]'s number.{/color}"
+            $   lanna_number = False
+            tb "We could still be friends."
+            lan "Nah, it's better this way. You know I don't do the whole \"friends\" thing."
+            lan "Anyway, have fun with Silvie or whoever you actually want to be with. Just do me one favor."
+            tb "What's that?"
+            lan "Don't waste a girl's time. Be up front with her and tell her what you really want. Everyone's happier that way in the end."
+            hide lanna with dissolve
+            "Lanna paid for her coffee and left. I never even got a chance to order for myself."
+            "I hope I didn't make a mistake."
+
+    if lanna_number == False:
+        sil "[PC]?"
+        "I turned around at the sound of the familiar voice."
+        show silvia with dissolve
+        tb "Hey, [Silvie]."
+        sil "It's good to see you here!"
+        if c_date == False:
+            sil "I didn't know you knew about this place."
+        else:
+            sil "I'm glad you like this place."
+        tb "Yeah, it's alright."
+        sil "Are you alright? You seem kinda down."
+        tb "You know Lanna, right?"
+        "Note: Silvie with a worried expression"
+        sil "Oh, so you've met another car?"
+        tb "Met and lost, I guess."
+        sil "What happened?"
+        "I told [Silvie] all about my time with [Lanna], from the moment I met her right up until she walked out."
+        sil "I'm sorry. I wish you had told me when you met her. I could have warned you not to get too close. [Lanna]'s different from the rest of us."
+        tb "Yeah, I noticed. I guess I should be glad that she didn't keep pushing me, but it still kind of hurts."
+        sil "You two didn't...{w} you know...{w} Did you?"
+        tb "Didn't what?{w} Oh right. No we didn't. Like I told you, I only met her a few days ago. I'm not the type to jump into bed with someone I barely know."
+        #show silvie relieved
+        sil "That's probably best."
+        sil "I'm really sorry that she hurt you. If you ever want to talk about these things, you can always call me."
+        tb "I appreciate it. I'll be fine. I don't know why I'm getting so upset over this anyway."
+        sil "[Lanna] has that effect on guys. Sometimes on girls, too. She's good at winning you over, but not good at keeping you."
+        tb "I should probably put this behind me. Do you want to have a coffee while we're both here?"
+        sil "Oh, I'd love to, and thanks for the offer, but I'm actually here to work. My shift's about to start. Maybe later?"
+        tb "I didn't realize you worked here!"
+        sil "Can you think of a better place for a car to work?"
+        "I glanced around at the automotive decor."
+        tb "That's a good point."
+        "Silvie let out a slight giggle."
+        sil "I can't stay to have some coffee with you, but I can at least bring you a cup before you go. On me, of course."
+        tb "You don't have to do that."
+        sil "I insist. I get an employee discount anyway, so it's not a big deal."
+        tb "Thank you then."
+        sil "Any time! That's what friends are for."
+        "[Silvie] brought me the coffee as promised with a few more words of encouragement."
+        show silvia:
+            choice:
+                linear 1.0 xalign 0.0
+            choice:
+                linear 1.0 xalign 1.0
+            repeat
+        "Possibly have an extra silvie image for this where it looks like she's further off."
+        "I drank my coffee watching [Silvie] bounce back and forth between tables, bringing people their orders with a smile on her face."
+        "Somehow [Silvie] really does know how to cheer me up. It still hurts to have gotten close to [Lanna] only for her to leave, but it's not as bad now."
+        show silvia:
+            linear 0.5 xalign 0.5
+        tb "Hey, thanks for talking to me, and thanks for the coffee. I really appreciate it."
+        sil "Any time!"
+        if sil_date == 0:
+            sil "Give me a call next time and we can have that coffee together."
+            tb "That sounds nice. I'll call you when I feel like going out again."
+        else:
+            sil "Give me a call sometime and we can go out and I can show you how a car should treat you."
+            sil "Sorry, was that weird to say?"
+            tb "No weirder than talking to a car in the first place. I appreciate it, though. I'll call you when I feel like going out again."
+        sil "That will be a happy day. I can't wait! Have a nice day."
+        tb "You too."
+        "I left her there smiling as she returned to her other customers."
+        $   sil_rel += 1
+        $   renpy.jump("dend_" + str(day))
+    else:
+        sil "[PC], is that you?"
+        "I turned around to see [Silvie] at the cafe entrance."
+        show lanna:
+            linear 0.5 left
+        show silvie at right with dissolve
+        lan "Hey, [Silvie]. You know [PC]?"
+        sil "Of course I know him. I'm the one who told him about us."
+        "[Silvie]'s face turned red."
+        lan "No wonder he's still so clueless then."
+        sil "What do you mean?"
+        lan "Poor boy doesn't understand cars at all. You'd think a mechanic would be more in tune with us, wouldn't you?"
+        sil "I think he's just fine. He's very gentle and very caring. Has he even worked on you?"
+        tb "Ladies, {i}he{/i} is sitting right here."
+        sil "I'm so sorry! [Lanna] just always likes to push my buttons."
+        lan "I am pretty good at pushing a girl's buttons, aren't I?"
+        sil "Pervert!"
+        lan "Me? Nah. [PC] here's the real pervert. Always grabbing you when you're going around corners. Or have you already discovered that?"
+        if sil_first_drive == True:
+            sil "Of course I have."
+            sil "I mean, there's nothing wrong with it. How many guys have you had in your car? You should know most of them are scared."
+        else:
+            sil "You let her drive you somewhere?"
+            tb "Once."
+            sil "I'm sorry you had to ride with someone so reckless. You should try riding with a decent driver sometime."
+            lan "And where would we find one of those? I know you can't mean yourself. You lose more races than you win."
+        tb "Can we please stop fighting? People are looking at us."
+        lan "Fine. I'll let it go if it'll make you happy."
+        tb "So what brings you here, [Silvie]?"
+        sil "Oh, I actually work here. My shift's about to start."
+        lan "Good, do you think you can bring our friend here some coffee? As soon as he saw me waiting for him he completely forgot to order."
+        "[Silvie] looked directly at me, ignoring [Lanna]."
+        sil "What would you like?"
+        "I gave her my order and she brought it out in almost no time."
+        tb "You're pretty good at your job."
+        lan "Not like it's hard."
+        sil "Oh please. You wouldn't last a day here. I've seen how you handle yourself when people get on your nerves. It takes someone gentle and patient to work here."
+        lan "Keep that gentle and patient thing up for our next race, would you? Make it easy for me.   "
+        sil "And if you keep being rude, we'll see just how long I stay gentle and patient."
+        "Customer" "Hey, waitress, where's our drinks?"
+        sil "Dangit. This isn't over, [Lanna]."
+        sil "Sorry, sir, I'll be right there."
+        hide silvie
+        show lanna:
+            linear 0.5 center
+        tb "Why did you lie like I hadn't told you about [Silvie]?"
+        lan "I just wanted to see what she'd do."
+        tb "But you just made her mad at you."
+        lan "I know. She's so cute when she's mad."
+        tb "But it's mean."
+        lan "Life's mean. She's a big girl. She can take it."
+        tb "Why not just be friends, though?"
+        lan "I've already told you that I don't do that whole \"friends\" thing."
+        lan "Friends just use you in the end. Me? I'm just upfront about using you."
+        tb "So you're using me?"
+        lan "You don't need me to answer that for you. You're still here, though, so I assume you must enjoy it."
+        tb "Not really. I'd rather feel like you actually wanted me."
+        lan "Oh, but I do want you. But I don't need you. That's the difference."
+        tb "Have you ever known how to keep friends?"
+        lan "I guess I tried a long time ago, but friends leave you in the end."
+        lan "Why bother with getting close to someone when I can just get what I want and avoid all that emotional bullshit?"
+        tb "Seems like kind of an empty life."
+        lan "Please, and when was the last time you had a girlfriend?"
+        "I'm embarrassed to answer that question."
+        lan "Exactly. The only thing that makes us different is I still get laid when I want."
+        tb "I still want someone, though."
+        lan "So why are you here with me? I'm not going to be that kind of girl to you."
+        "I honestly don't know. Why am I still here with her?"
+        lan "I think you secretly want this. You want someone that you don't have to worry about getting close to and losing."
+        "Is she right? Is that really all it is?"
+        tb "I can't accept that. I don't think that's me."
+        lan "Well, I guess we'll just have to keep digging and see what's really there under your surface."
+        tb "I don't think you'll find anything I don't already know, but we'll see."
+        lan "So hey, I'm getting a little bored of [Silvie]'s death stares towards me and it's kinda late. If it's all good, I think I'm ready to go."
+        tb "That's fine. It was nice to hang out again."
+        lan "Of course. You're more interesting than you realize."
+        tb "Can you at least try not to piss of any other cars while we're out next time, though?"
+        lan "Hmm...{w} Maybe.{w} No promises."
+        tb "I guess that's as good as I can expect from you."
+        "[Lanna] flashed me a playful smile as she got up to leave."
+        "As I walked out, I turned and gave [Silvie] an apologetic wave, then went home."
+        $   renpy.jump("dend_" + str(day))
+
+        return
+
+
 
 
 
@@ -2913,7 +3131,7 @@ label start:
     return
 
 
-#Shelby Dates
+    #Shelby Dates
 
     #Shelby P4U and shop date
     label she_d2_date:
@@ -3105,6 +3323,75 @@ label start:
 
     $   renpy.jump("dend_" + str(day))
 
+
+    #Endings
+
+    #Silvie Endings
+    #Mia Endings
+
+    #Lanna Endings
+    label lanna_ending_TooSoon:
+    tb "You're right. I do want you."
+    "A devious smile crept across [Lanna]'s face."
+    tb "You're different from any other girl I've met. It makes me feel awkward, but I kind of like it."
+    lan "Wow. That's a surprise. I didn't think I'd win you over that quickly."
+    tb "What can I say? You seem to know how to get your way."
+    lan "I do, don't I?"
+    tb "So what now?"
+    lan "That's the easy part. Your place or mine?"
+    scene black with dissolve
+    "That first week was blissful."
+    "We went back to my place. She had a good laugh at my bed, and then some good fun in it."
+    "That week was magical. We went on dates every day. Came back to my place and carried on well into the night."
+    "It seemed like it would never end."
+    scene bg bed with dissolve
+    show lanna with dissolve
+    lan "Come on, damnit. You're taking too long."
+    "She started getting impatient with me towards the end of the week. I brushed it aside at first."
+    tb "Sorry, I'm coming."
+    lan "Took you long enough. How hard is it to get dressed? At least you get out of your clothes fast enough."
+    scene black with dissolve
+    "I thought it was just part of us learning how to be compatible with each other, but it only got worse."
+    scene bg itally with dissolve
+    show lanna with dissolve
+    "Little things started to upset her."
+    lan "Oh my god, could you chew your food any louder?"
+    tb "I didn't realize it was so loud. I'll try to chew softer."
+    "I tried to capitulate to her. I knew I wasn't going to change her when I went into this, but I thought I could be more fitting for her."
+    lan "Don't bother. I don't have much apetite here anymore anyway."
+    lan "Waiter, bring us the check."
+    scene black with dissolve
+    "The sex was great. She was just as wild in bed as she was behind the wheel."
+    "For a while, I thought that I was at least satisfying her in that respect."
+    scene bg bed with dissolve
+    show lanna with dissolve
+    lan "And here I thought you were slow at everything, but you're already finished?"
+    "I don't know how long I lasted this time. It didn't seem any different from normal, but maybe it was."
+    tb "I'm sorry."
+    lan "You gonna do anything else or am I gonna have to finish myself?"
+    scene bg park with dissolve
+    show lanna with dissolve
+    "It wasn't long before we ended up back where we started."
+    lan "Look, I don't know why I went for you."
+    "I should have seen this coming."
+    lan "Sure, you were attractive, and I even had some good times with you, but you really have no idea how to satisfy a woman or a car."
+    tb "So is this it then?"
+    lan "I guess it is."
+    "For a moment, I caught a small flash of pitty in her eyes."
+    lan "Hey, for what it's worth, you weren't all bad. I'm not really a long-term girl anyway."
+    lan "Best of luck to you."
+    hide lanna with dissolve
+    "I'm not sure if she forgot that she drove me to the park, but she left me there and drove off."
+    "Maybe I shouldn't have been so quick to dive into this?"
+    "Or maybe I'm just too quick to blame myself?"
+    scene black with dissolve
+    "Unlocked \"Too Soon\" ending."
+    return
+
+    #Shelby Endings
+    #Roxanne Endings
+    #Mui Endings
+    #Staci Ending
 
 
 
